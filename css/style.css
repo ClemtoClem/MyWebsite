@@ -9,53 +9,6 @@ body {
 	overflow: hidden;
 }
 
-
-@keyframes neon-text-blink {
-	0%, 100% {
-		text-shadow: none;
-		color: #0000;
-	}
-	10%, 30%, 50% {
-		color: red;
-		text-shadow: 
-			0 0 7px red,
-			0 0 10px red,
-			0 0 21px red,
-			0 0 42px red;
-	}
-	20%, 40%, 60% {
-		color: cyan;
-		text-shadow: 
-			0 0 7px cyan,
-			0 0 10px cyan,
-			0 0 21px cyan,
-			0 0 42px cyan;
-	}
-	70% {
-		color: green;
-		text-shadow: 
-			0 0 7px green,
-			0 0 10px green,
-			0 0 21px green,
-			0 0 42px green;
-	}
-	80%, 100% {
-		color: orange;
-		text-shadow: 
-			0 0 7px orange,
-			0 0 10px orange,
-			0 0 21px orange,
-			0 0 42px orange;
-	}
-}
-
-.neon-text-effect {
-	color: #fff;
-	animation: neon-text-blink 10s infinite;
-	font-weight: 400;
-	font-size: 2.4em;
-}
-
 canvas {
 	position: fixed;
 	top: 0;
@@ -151,6 +104,50 @@ canvas {
 
 .active {
 	display: block;
+}
+
+@keyframes neon-text-blink {
+	0%, 100% {
+		text-shadow: none;
+		color: #0000;
+	}
+	10%, 30%, 50% {
+		color: red;
+		text-shadow: 
+			0 0 7px red,
+			0 0 10px red,
+			0 0 21px red,
+			0 0 42px red;
+	}
+	20%, 40%, 60% {
+		color: cyan;
+		text-shadow: 
+			0 0 7px cyan,
+			0 0 10px cyan,
+			0 0 21px cyan,
+			0 0 42px cyan;
+	}
+	70% {
+		color: green;
+		text-shadow: 
+			0 0 7px green,
+			0 0 10px green,
+			0 0 21px green,
+			0 0 42px green;
+	}
+	80%, 100% {
+		color: orange;
+		text-shadow: 
+			0 0 7px orange,
+			0 0 10px orange,
+			0 0 21px orange,
+			0 0 42px orange;
+	}
+}
+
+.neon-text-effect {
+	color: #fff;
+	animation: neon-text-blink 4s infinite;
 }
 
 h1, h2 { 
