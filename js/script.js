@@ -256,7 +256,7 @@ function closeMenu() {
 // Fonction pour afficher une sous-section spécifique
 function showSection(sectionId) {
 	// Masquer toutes les sous-sections
-	const sections = document.querySelectorAll(".subsection");
+	const sections = document.querySelectorAll("section");
 	sections.forEach(section => section.classList.remove("active"));
 
 	// Afficher la sous-section sélectionnée
