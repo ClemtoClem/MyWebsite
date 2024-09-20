@@ -1,308 +1,223 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" type="image/png" href="img/icon.png">
+	<title>Page Web Dynamique</title>
+	<link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css">
-	<script src="js/script.js"></script> 
-	<title>Page Personnelle</title>
 </head>
+
 <body>
 
-<canvas id="backgroundCanvas"></canvas>
+	<!-- Canvas pour le fond d'écran -->
+	<canvas id="background-canvas"></canvas>
 
-<div id="hamburger" onclick="toggleNav()">
-	<div class="bar1"></div>
-	<div class="bar2"></div>
-	<div class="bar3"></div>
-</div>
-
-<div id="myNavbar" class="navbar">
-	<div class="section-fr">
-		<a href="#" onclick="showSection('home')">Page d'accueil</a>
-		<a href="#" onclick="showSection('about')">A propos de moi</a>
-		<a href="#" onclick="showSection('cv')">Mon Curriculum Vitae</a>
-		<a href="#" onclick="showSection('projects')">Mes projets</a>
-		<a href="#" onclick="showSection('contacts')">Contacts</a>
-	</div>
-	<div class="section-en">
-		<a href="#" onclick="showSection('home')">Home</a>
-		<a href="#" onclick="showSection('about')">About Me</a>
-		<a href="#" onclick="showSection('cv')">My Curriculum Vitae</a>
-		<a href="#" onclick="showSection('projects')">My projects</a>
-		<a href="#" onclick="showSection('contacts')">Contacts</a>
-	</div>
-</div>
-
-<div class="content">
-	<!-- Home Section -->
-	<div id="home" class="section active">
-		<div class="section-header">
-			<button id="btn-fr" class="btn-active">français</button>
-			<button id="btn-en">english</button>
-
-			<h1 class="neon-text-effect">CHARRIERE Clément</h1>
+	<!-- En-tête fixe -->
+	<header>
+		<span id="hamburger" onclick="toggleMenu()" aria-label="Menu de navigation" tabindex="0">
+            <div id="hamburger-bar1"></div>
+            <div id="hamburger-bar2"></div>
+            <div id="hamburger-bar3"></div>
+        </span>
+		<div class="title-container">
+			<h1 id="header-title"></h1>
+			<h2 id="header-subtitle"></h2>
 		</div>
+	</header>
 
-		<div class="section-fr">
-			<div class="section-main">
-				<div class="section-content">
-					<p class="p-center" style="font-weight: bold; font-size: 18px;">Bienvenue sur ma page personnelle</p>
-					<p class="p-center" style="font-weight: bold; font-size: 18px;">⮴ Cliquez sur le bouton en haut à gauche pour ouvrir la barre de navigation</p>
-				</div>
-			</div>
-		</div>
+	<!-- Barre latérale de navigation -->
+    <nav id="sidebar" aria-label="Barre de navigation">
+        <a href="#" onclick="showSection('sectionHome')" tabindex="0">Accueil</a>
+        <a href="#" onclick="showSection('sectionAboutMe')" tabindex="0">À Propos</a>
+        <a href="#" onclick="showSection('sectionCV')" tabindex="0">Mon Curriculum Vitae</a>
+        <a href="#" onclick="showSection('sectionProjets')" tabindex="0">Projets</a>
+        <a href="#" onclick="showSection('sectionContact')" tabindex="0">Contact</a>
+    </nav>
 
-		<div class="section-en">
-			<div class="section-main">
-				<div class="section-content">
-					<p class="p-center" style="font-weight: bold; font-size: 18px;">Welcome to my personal page</p>
-					<p class="p-center" style="font-weight: bold; font-size: 18px;">⮴ Click the button at the top left to open the navigation bar</p>
-				</div>
-			</div>
-		</div>
+	<!-- Contenu principal scrollable -->
+    <div id="main-content">
+		<!-- Section Accueil -->
+        <section id="sectionHome" class="subsection active">
+            <div class="subsection-content">
+                <p class="p-center" style="font-weight: bold; font-size: 18px;">Bienvenue sur ma page personnelle</p>
+				<p class="p-center" style="font-weight: bold; font-size: 18px;">⮴ Cliquez sur le bouton en haut à gauche pour ouvrir la barre de navigation</p>
+            </div>
+        </section>
 
-		<div class="section-main">
-			<img src="img/Photo_identité.jpg" alt="Photo d'identité" style="width:100px;">
-		</div>
-	</div>
+		<!-- Section À Propos -->
+        <section id="sectionAboutMe" class="subsection">
+            <div class="subsection-content" style="font-size: 18px;">
+                <p class="paragraph">
+                    Bonjour, je m'appelle <b>Charriere Clément</b>
+                </p>
+                <p class="paragraph indent">
+                    Actuellement en dernière année d'école d'ingénieur au sein du réseau <b>Polytech Grenoble</b>,
+                    je me spécialise en <b>Informatique et Électronique des Systèmes Embarqués</b> (IESE).
+                    Ce parcours m'a permis de développer des compétences approfondies en <b>programmation backend</b> (C, C++),
+                    en <b>électronique et microélectrique</b>, ainsi qu'en <b>traitement du signal</b>,
+                    avec une forte orientation vers les systèmes embarqués, un domaine qui me passionne.
+                </p>
+                <p class="paragraph">
+                    Avant d'intégrer Polytech en 2022, j'ai obtenu un <b>BAC+2 en Génie Électrique et Informatique Industrielle</b> (GEII) à l'IUT de Grenoble.
+                    Cette formation m'a permis d'acquérir une base solide en électricité, électronique, et automatisation,
+                    et d'approfondir mes connaissances en développement de systèmes industriels.
+                </p>
+                <p class="paragraph">
+                    Au-delà de mon parcours académique, mes stages et expériences professionnelles (notamment lors de mes emplois d'été) m'ont permis
+                    d'acquérir une expérience concrète dans des secteurs variés, en particulier en électronique et informatique embarquée.
+                    J'ai eu l'opportunité de travailler sur des projets intégrant la conception de systèmes électroniques et la programmation de solutions embarquées,
+                    ce qui m'a permis de renforcer mes compétences techniques et de développer des capacités en gestion de projet et en travail en équipe.
+                </p>
+                <p class="paragraph indent">
+                    Aujourd'hui, je suis à la recherche d'un <b>stage de fin d'études</b> (de 22 semaines à partir du 15 Mars 2025) pour valider mon diplôme
+                    et mettre en application mes compétences dans un environnement stimulant,
+                    avec un intérêt particulier pour les projets liés aux systèmes embarqués,
+                    à l'informatique, à l'automatisation ou à l'IoT.
+                </p>
+            </div>
+			<div class="subsection-end">🗿</div>
+        </section>
 
-	<!-- About me Section -->
-	<div id="about" class="section">
-		<div class="section-fr">
-			<div class="section-header" style="padding-left: 0px;">
-				<h1 class="neon-text-effect">À propos de moi</h1>
-				<p class="p-center">* * *</p>
-			</div>
+		<!-- Section CV -->
+        <section id="sectionCV" class="subsection">
+            <div class="subsection-content" style="margin-bottom: 20px;">
+                <button id="cv-download" class="download-button" onclick="downloadCV()">Télécharger mon CV</button>
+            </div>
 
-			<div class="section-main">
-				<div class="section-content">
-					<p class="p-justify">
-						Bonjour, je m'appelle Charriere Clément<br>
-						<br>
-					</p>
-					<p class="p-justify indent">
-						Actuellement en dernière année d'école d'ingénieur au sein du réseau Polytech Grenoble,
-						je me spécialise en <b>Informatique et Électronique des Systèmes Embarqués</b> (IESE).
-						Ce parcours m'a permis de développer des compétences approfondies en <b>programmation backend</b> (C, C++),
-						en <b>électronique et microélectrique</b>, ainsi qu'en <b>traitement du signal</b>,
-						avec une forte orientation vers les systèmes embarqués, un domaine qui me passionne.
-						<br><br>
-						Avant d'intégrer Polytech en 2022, j'ai obtenu un <b>BAC+2 en Génie Électrique et Informatique Industrielle</b> (GEII) à l'IUT de Grenoble.
-						Cette formation m'a permis d'acquérir une base solide en électricité, électronique, et automatisation,
-						et d'approfondir mes connaissances en développement de systèmes industriels.
-						<br><br>
-						Au-delà de mon parcours académique, mes stages et expériences professionnelles (notamment lors de mes emplois d'été) m'ont permis
-						d'acquérir une expérience concrète dans des secteurs variés, en particulier en électronique et informatique embarquée.
-						J'ai eu l'opportunité de travailler sur des projets intégrant la conception de systèmes électroniques et la programmation de solutions embarquées,
-						ce qui m'a permis de renforcer mes compétences techniques et de développer des capacités en gestion de projet et en travail en équipe.
-						<br><br>
-					</p>
-					<p class="p-justify indent">
-						Aujourd'hui, je suis à la recherche d'un <b>stage de fin d'études</b> (de 22 semaines à partir du 15 Mars 2025) pour valider mon diplôme
-						et mettre en application mes compétences dans un environnement stimulant,
-						avec un intérêt particulier pour les projets liés aux systèmes embarqués,
-						à l'informatique, à l'automatisation ou à l'IoT.
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="section-en">
-			<div class="section-header" style="padding-left: 0px;">
-				<h1>About me</h1>
-				<p class="p-center">* * *</p>
-			</div>
+			<h2 class="subsection-title">Mon parcours scolaire</h2>
+            <div class="subsection-content">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Année</th>
+                            <th>Filière</th>
+                            <th>École</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>2022-2024</b></td>
+                            <td>4ème année, Informatique et Électronique des Systèmes Embarqués</td>
+                            <td><a id="a-polytech" target="_blank" href="https://polytech.grenoble-inp.fr/">PolyTech, Université Grenoble Alpes (UGA)</a></td>
+                        </tr>
+                        <tr>
+                            <td><b>2020-2022</b></td>
+                            <td>Génie Électrique et Informatique Industrielle</td>
+                            <td><a id="a-IUT1" target="_blank" href="https://iut1.univ-grenoble-alpes.fr/">IUT1 UGA</a></td>
+                        </tr>
+                        <tr>
+                            <td><b>2020</b></td>
+                            <td>Baccalauréat série S SVT</td>
+                            <td><a id="a-lycee" target="_blank" href="https://eaux-claires.ent.auvergnerhonealpes.fr/">Lycée Les Eaux Claires de Grenoble</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="subsection-end">🎓</div>
 
-			<div class="section-main">
-				<div class="section-content">
-					<p class="p-justify">
-						Hello my name is Charriere Clément<br>
-						<br>
-					</p>
-					<p class="p-justify indent">
-						I am currently in my final year of engineering school at Polytech Grenoble,
-						specializing in Embedded Systems Engineering (IESE).
-						This program has allowed me to develop strong skills in programming (C, C++),
-						electronics, as well as networking and signal processing,
-						with a particular focus on embedded systems, a field I am passionate about.
-						<br><br>
-						Before joining Polytech in 2022, I earned a two-year degree in Electrical
-						Engineering and Industrial Computing (GEII) from the Grenoble University
-						Institute of Technology (IUT). This education provided me with a solid
-						foundation in electrical engineering, electronics, and automation,
-						and deepened my knowledge in the development of industrial systems.
-						<br><br>
-						Beyond my academic path, my internships and professional experiences
-						(notably during summer jobs) have allowed me to gain hands-on experience
-						in various sectors, especially in electronics and embedded computing.
-						I had the opportunity to work on projects involving the design of electronic
-						systems and the programming of embedded solutions, which helped strengthen my
-						technical skills and develop project management and teamwork abilities.
-						<br><br>
-					</p>
-					<p class="p-justify indent">
-						I am currently looking for a final year internship (22 weeks starting March 15, 2025)
-						to finish my degree and apply my skills in a challenging environment,
-						with a particular interest in projects related to embedded systems, IT, automation or IoT.
-					</p>
-				</div>
-			</div>
-		</div>
-		<div class="end-page">🗿</div>
-	</div>
+            <h2 class="subsection-title">Mes emplois</h2>
+            <!-- Stage TIMA -->
+            <div class="subsection-content">
+                <h3><a id="a-TIMA" target="_blank" href="https://tima.univ-grenoble-alpes.fr/">Stage d'assistant ingénieur (Bac+4) au laboratoire TIMA</a></h3>
+                <p>
+                    Période : 17 semaines (mi avril à fin août 2024)<br \><br \>
+                    <h4>Activité :</h4>
+                    Conception et réalisation d'un système de traitement du signal sur plateforme Red Pitaya
+                    <br \><br \>
+                    <h4>Compétences acquises :</h4>
+                    <ul>
+                        <li>Conception et réalisation d'un système de traitement du signal sur plateforme Red Pitaya</li>
+                        <li>Programmation Backend en C, C++ et Python</li>
+                        <li>Programmation Frontend en HTML, CSS, JavaScript</li>
+                        <li>Utilisation de la plateforme Red Pitaya</li>
+                        <li>Compétences en interfaces matérielles et logicielles</li>
+                        <li>Expertise en optimisation de code</li>
+                        <li>Gestion du temps de travail (Gantt)</li>
+                        <li>Travail en équipe</li>
+                    </ul>
+                </p>
+            </div>
+            <!-- Stage Itancia -->
+            <div class="subsection-content">
+                <h3><a id="a-Itancia1" target="_blank" href="https://itancia.com/">Stage de technicien (Bac+2) à Itancia Eybens, Isère, France</a></h3>
+                <p>
+                    Période : 12 semaines (fin mars à fin mai 2022)<br \><br \>
+                    <h4>Activité de l'entreprise :</h4>
+                    <ul>
+                        <li>Réparation de matériel industriel électronique et informatique sur demande d'entreprise et reconditionnement de téléphone et électroménager.</li>
+                        <li>Modification de PCB sur demande</li>
+                        <li>Récupération de composants (BGA, CSP, QFN, LGA, …)</li>
+                        <li>Assemblage, dessoudage, remplacement de composants, rebillage, reprise filaire</li>
+                        <li>Fabrication de capteur d'encre pour imprimante</li>
+                    </ul>
 
-	<!-- My Curriculum Vitae Section -->
-	<div id="cv" class="section">
-		<div class="section-header" style="padding-left: 0px;">
-			<h1>Mon Curriculum Vitae</h1>
-			<p class="p-center" style="padding-bottom: 10px;">Ici, tu peut visualiser mon CV.</p>
-		</div>
+                    <h4>Activité effectuée :</h4>
+                    <ul>
+                        <li>Réparation de téléviseurs, écrans et ordinateurs (Optiplex, Vostro, Aplus Cincoze), onduleur (Eaton)</li>
+                        <li>Réparation de cartes électroniques (super I/O, Kis)</li>
+                        <li>Brasure à l'étain et au plomb</li>
+                        <li>Refusion, nettoyage et rebillage de BGA</li>
+                        <li>Utilisation de bancs de test sophistiqués</li>
+                        <li>Programmation Python</li>
+                    </ul>
 
-		<div class="section-main">
-			<div style="margin-top: 25px;">
-				<h2>Mon parcours scolaire</h2>
-			</div>			
-			<div class="section-content">
-				<table style="text-align: justify;">
-					<thead>
-						<tr>
-							<td>Année</td>
-							<td>Filière</td>
-							<td>École</td>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td><b>2022-2024</b></td>
-							<td>4ème année, Informatique et Electronique des Systèmes Embarqués</td>
-							<td><a id="a-polytech" target="_blank" href="https://polytech.grenoble-inp.fr/">PolyTech, Université Grenoble Alpes (UGA)</a></td>
-						</tr>
-						<tr>
-							<td><b>2020-2022</b></td>
-							<td>Génie Électrique et d'Informatique Industriel</td>
-							<td><a id="a-IUT1" target="_blank" href="https://iut1.univ-grenoble-alpes.fr/">IUT1 UGA</a></td>
-						</tr>
-						<tr>
-							<td><b>2020</b></td>
-							<td>Baccalauréat série S SVT</td>
-							<td><a id="a-lycee" target="_blank" href="https://eaux-claires.ent.auvergnerhonealpes.fr/">Lycée Les Eaux Claires de Grenoble</a></td>
-						</tr>
-					</tbody>
-					
-				</table>            
-			</div>
-		</div>
+                    <h4>Formation :</h4>
+                    Habilitation BR, (Apave, Grenoble)<br \>
+                </p>
+            </div>
+            <!-- CDD Itancia -->
+            <div class="subsection-content">
+                <h3><a id="a-Itancia2" target="_blank" href="https://itancia.com/">CDD à Itancia Eybens, Isère, France</a></h3>
+                <p>
+                    Période : job d'été 2 mois et une semaine (fin juin à fin août 2021)<br \>
+                    Période : job d'été 3 mois (début juin à fin août 2022)<br \>
+                    Période : job d'été 3 mois (début juin à fin août 2023)<br \>
+                </p>
+            </div>
+            <!-- CDD Carrefour -->
+            <div class="subsection-content">
+                <h3><a id="a-Carrefour" target="_blank" href="https://www.carrefour.fr/magasin/saint-egreve">CDD Carrefour Saint-Egrève, Isère, France</a></h3>
+                <p>
+                    Période : job d'été 2 mois et une semaine (fin juin à fin août 2020)<br \>
+                </p>
+                <h4>Activité effectuée :</h4>
+                <ul>
+                    <li>Réception et stockage de marchandises</li>
+                    <li>Mise en rayon des boissons</li>
+                    <li>Utilisation de transpalettes automatisés</li>
+                    <li>Accueil des clients</li>
+                </ul>
+            </div>
+            <div class="subsection-end">🏢</div>
 
-		<div class="section-main">
-			<h2>Mes emplois</h2>
-			<div class="section-content p-justify" style="margin-bottom: 10px;">
-				<h3><a id="a-TIMA" target="_blank" href="https://tima.univ-grenoble-alpes.fr/">Stage d'assistant ingénieur (Bac+4) au laboratoire TIMA</a></h3>
-				<p>
-					Période : 17 semaines (mi avril à fin août 2024)<br>
-					
-					<h4>Activité :</h4>
-					Conception et réalisation d'un système de traitement du signal sur plateforme Red Pitaya
-					
-					<br>
-					<h4>Compétences acquises :</h4>
-					<ul>
-						<li>Conception et réalisation d'un système de traitement du signal sur plateforme Red Pitaya</li>
-						<li>Programmation Backend en C, C++ et Python</li>
-						<li>Programmation Frontend en HTML, CSS, JavaScript</li>
-						<li>Utilisation de la plateforme Red Pitaya</li>
-						<li>Compétences en interfaces matérielles et logicielle</li>
-						<li>Expertise en optimisation de code</li>
-						<li>Gestion du temps de travail (Gantt)</li>
-						<li>Travail en équipe</li>
-					</ul>
-
-				</p>
-			</div>
-			
-			<div class="section-content p-justify" style="margin-bottom: 10px;">
-				<h3><a id="a-Itancia" target="_blank" href="https://itancia.com/">Stage de technicien (Bac+2) à Itancia Eybens, Isère, France</a></h3>
-				<p>
-					Période : 12 semaines (fin mars à fin mai 2022)<br>
-					
-					<h4>Activité de l'entreprise :</h4>
-					<ul>
-						<li>Réparation de matériel industriel électronique et informatique sur demande d'entreprise et reconditionnement de téléphone et électroménager.</li>
-						<li>Modification de PCB sur demande</li>
-						<li>Récupération de composants (BGA, CSP, QFN, LGA, …)</li>
-						<li>Assemblage, dessoudage, remplacement de composants, rebillage, reprise filaire</li>
-						<li>Fabrication de capteur d'encre pour imprimante</li>
-					</ul>
-					
-					<h4>Activité effectuée :</h4>
-					<ul>
-						<li>Réparation de téléviseurs, écrans et ordinateurs (Optiplex, Vostro, Aplus Cincoze), onduleur (Eaton)</li>
-						<li>Réparation de cartes électroniques (super I/O, Kis)</li>
-						<li>Brasure à l'étain et au plomb</li>
-						<li>Refusion, nettoyage et rebillage de BGA</li>
-						<li>Utilisation de bancs de test sophistiqués</li>
-						<li>Programmation Python</li>
-					</ul>
-
-					<h4>Formation :</h4>
-					Habilitation BR, (Apave, Grenoble)<br>
-				</p>
-			</div>
-			
-			<div class="section-content p-justify" style="margin-bottom: 10px;">
-				<h3><a id="a-Itancia" target="_blank" href="https://itancia.com/">CDD à Itancia Eybens, Isère, France</a></h3>
-				<p>
-					Période : job d'été 2 mois et une semaine (fin juin à fin août 2021)<br>
-					Période : job d'été 3 mois (début juin à fin août 2022)<br>
-					Période : job d'été 3 mois (début juin à fin août 2023)<br>
-					
-				</p>
-			</div>
-			<div class="section-content p-justify">
-				<h3><a id="a-Carrefour" target="_blank" href="https://www.carrefour.fr/magasin/saint-egreve">CDD Carrefour Saint-Egrève, Isère, France</a></h3>
-				<p>
-					Période : job d'été 2 mois et une semaine (fin juin à fin août 2020)<br>
-				</p>
-				<h4>Activité effectuée :</h4>
-				<ul>
-					<li>Réception et stockage de marchandises</li>
-					<li>Mise en rayon des boissons</li>
-					<li>Utilisation de transpalettes automatisés</li>
-					<li>Accueil des clients</li>
-				</ul>
-
-			</div>
-		</div>
-
-		<div class="section-main">
-			<h2>Mes compétences</h2>
-			<div class="section-content">
-				<ul>
+            <h2 class="subsection-title">Mes compétences</h2>
+            <div class="subsection-content">
+                <ul>
 					<li><b>Languages de programmation :</b> C, C++, Shell linux, Python, Lua, JavaScript, CSS3, HTML5</li>
 					<li><b>Librairies graphique C/C++ :</b> SDL2, SDL2_image, SDL2_ttf, SDL2_mixer, SDL2_net, SDL2_gfx, glm, GL, ncurses</li>
 					<li><b>Languages de description matériel :</b> VHDL</li>
 					<li><b>Logiciels :</b> Git (avec Github), Visual Studio Code, KiCad, Arduino IDE, STM32CubeIDE, Logisim</li>
-					<li><b>Platformes :</b> STM32 Nucléo (STM32F769I-Discovery, NUCLEO-F446RE, NUCLEO-F767ZI), Arduino (Uno, Mega), Red Pitaya, ESP32 (ESP32-WROOM-32)</li>
+					<li><b>Platformes :</b> STM32 Nucléo (STM32F769I-Discovery, NUCLEO-F446RE, NUCLEO-F767ZI), Aduino (Uno, Mega), Red Pitaya, ESP32 (ESP32-WROOM-32)</li>
 					<li><b>Systèmes d'exploitations :</b> Linux (LTS Ubuntu 22.04 et LTS Ubuntu 24.04), Windows (Xp, 10, 11), Android</li>
 				</ul>
-			</div>
-		</div>
+            </div>
+            <div class="subsection-end">🧑‍💻</div>
 
-		<div class="section-main">
-			<h2>Langues</h2>
-			<div class="section-content">
-				<ul>
+            <h2 class="subsection-title">Langues</h2>
+            <div class="subsection-content">
+                <ul>
 					<li>Français (maternelle)</li>
 					<li>Anglais (B2)</li>
 					<li>Allemand (A2)</li>
 				</ul>
-			</div>
-		</div>
+            </div>
+            <div class="subsection-end">🗣️</div>
 
-		<div class="section-main">
-			<h2>Mes centres d'intérêt</h2>
-			<div class="section-content">
-				<ul>
+            <h2 class="subsection-title">Mes centres d'intérêt</h2>
+            <div class="subsection-content">
+                <ul>
 					<li>Programmation web (nodeJs, Jquery, HTML, JavaScriptn, CSS)</li>
 					<li>Programmation jeux vidéo (C++, C, glm, GL, SDL2)</li>
 					<li>Jeux vidéo (Minetest, OpenArena, ROM GBA, ROM NDS)</li>
@@ -310,176 +225,227 @@
 					<li>Piano (Jazz)</li>
 					<li>Dessin</li>
 				</ul>
-			</div>
-		</div>
-		<div class="end-page">☕</div>
-	</div>
+            </div>
+			<div class="subsection-end">☕</div>
+        </section>
 
-	<!-- My projects Section -->
-	<div id="projects" class="section">
-		<div class="section-header" style="padding-left: 0px;">
-			<div class="section-fr">
-				<h1>Mes Projets</h1>
-				<p class="p-center" style="padding-bottom: 10px;">Voici mes projets hardware, firmware et software.</p>
-			</div>
+		<!-- Section Projets -->
+        <section id="sectionProjets" class="subsection">
+            <div class="subsection-content">
+                <h2>Projets Software</h2>
+                <p>Voici une liste de mes projets informatiques développés avec divers langages et algorithmes.</p>
+                <div class="projects-container">
+                    <!-- Carte Projet 1 -->
+                    <div class="card">
+                        <div class="ribbon-wrapper">
+                            <div class="ribbon">C++</div>
+                        </div>
+                        <div class="card-image">
+                            <a href="#" onclick="showSection('sectionProject-Polyadventure')" title="polyadventure">
+                                <img src="img/polyadventure-capture.png" alt="polyadventure" loading="lazy">
+                            </a>
+                        </div>
+                        <div class="card-text">
+                            <h4>Polyadventure</h4>
+                            <div class="card-description">
+                                <p>Création d'un jeux 2D en C avec la librairie SDL2</p>
+                            </div>
+                            <time class="card-date">
+                                2022
+                            </time>
+                        </div>
+                    </div>
 
-			<div class="section-en">
-				<h1>My Projets</h1>
-				<p class="p-center" style="padding-bottom: 10px;">Here are my hardware, firmware and software projects.</p>
-			</div>
+                    <!-- Carte Projet 2 -->
+                    <div class="card">
+                        <div class="ribbon-wrapper">
+                            <div class="ribbon">Java & Spring</div>
+                        </div>
+                        <div class="card-image">
+                            <a href="projets-gestion-inventaire" title="Inventory Manager">
+                                <img src="img/inventory-thumbnail.png" alt="Inventory Manager">
+                            </a>
+                        </div>
+                        <div class="card-text">
+                            <h4>Inventory Manager</h4>
+                            <div class="card-description">
+                                <p>Application de gestion d'inventaire développée en Java avec le framework Spring.</p>
+                            </div>
+                            <time class="card-date">
+                                2015
+                            </time>
+                        </div>
+                    </div>
 
-			<div class="buttons" style="text-align: center;">
-				<button id="btn-hardware" class="btn-active">Hardware</button>
-				<button id="btn-firmware">Firmware</button>
-				<button id="btn-software">Software</button>
-				<button id="btn-web">Web</button>
-			</div>
-		</div>
+                    <!-- Carte Projet 3 -->
+                    <div class="card">
+                        <div class="ribbon-wrapper">
+                            <div class="ribbon">Python & Django</div>
+                        </div>
+                        <div class="card-image">
+                            <a href="projets-site-web-ecommerce" title="E-Commerce Site">
+                                <img src="img/ecommerce-thumbnail.png" alt="E-Commerce Site">
+                            </a>
+                        </div>
+                        <div class="card-text">
+                            <h4>E-Commerce Site</h4>
+                            <div class="card-description">
+                                <p>Site de commerce électronique développé en Python avec Django.</p>
+                            </div>
+                            <time class="card-date">
+                                2020
+                            </time>
+                        </div>
+                    </div>
 
-		<div id="hardware" class="section">
-			<div class="section-fr">
-				<div class="section-main">
-					<h2>Conception d'une boite à music</h2>
-					<div class="section-content">
-					</div>
-				</div>
-			</div>
-			<div class="section-en">
-				<div class="section-main">
-					<h2>Creation of a music box</h2>
-					<div class="section-content">
-					</div>
-				</div>
-			</div>
-			<div class="end-page">🤖</div>
-		</div>
+                    <!-- Ajoutez d'autres cartes de projets ici -->
+                </div>
+            </div>
+            <div class="subsection-content">
+                <h2>Projets Hardware</h2>
+                <p>Voici une liste de mes projets informatiques développés avec divers langages et algorithmes.</p>
+                <div class="projects-container">
+                    <!-- Carte Projet 1 -->
+                    <div class="card">
+                        <div class="ribbon-wrapper">
+                            <div class="ribbon">C++</div>
+                        </div>
+                        <div class="card-image">
+                            <a href="#" onclick="showSection('sectionProject-RedPitaya')" title="redpitaya">
+                                <img src="img/red-pitaya.png" alt="redpitaya" loading="lazy">
+                            </a>
+                        </div>
+                        <div class="card-text">
+                            <h4>Red Pitaya</h4>
+                            <div class="card-description">
+                                <p>Développement d'une libraire de traitement du signal sur Red Pitaya pour mesurer les figure de mértie de dispositif MEMS</p>
+                            </div>
+                            <time class="card-date">
+                                2024
+                            </time>
+                        </div>
+                    </div>
 
-		<div id="firmware" class="section">
-			<div class="section-fr">
-				<div class="section-main">
-					<h2>Red Pitaya</h2>
-					<div class="section-content">
-						<p>
-							Programmation d'un système universel de mesures des figures de mérites d'un capteur sur Red Pitaya STEMlab 125-14.
-							<br><br>
-							Le programme compilé à même la Red Pitaya permet de déterminer graphiquement la fréquence de résonnance et d'anti-résonnance du dispositif.
-							L'application démodule le signal de sortie du dispositif et le signal de référence d'exitation généré par la Red Pitaya et comprare les résultats
-							pour en déduire l'amplitude et la phase. Cette étape est répétée pour différentes fréquences d'exitation sur une plage de fréquences paramétrable.
-							Le programme est écrit en C et C++ et utilise la bibliothèque de la Red Pitaya pour gérer ses périphériques et principalement les deux entrées et
-							les deux sorties analogiques hautes perfomances (125MHz et 14 bits de réslution sur une pleine échelle de ±1V).
-						</p>
-						<div class="img-light-background">
-							<img src="img/red-pitaya.png"></img>
-							<p class="img-title">Red Pitaya STEMlab 125-14</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="section-en">
-				<div class="section-main">
-					<h2>Red Pitaya</h2>
-					<div class="section-content">
-					</div>
-				</div>
-			</div>
-			<div class="end-page">📟</div>
-		</div>
+                    <!-- Carte Projet 2 -->
+                    <div class="card">
+                        <div class="ribbon-wrapper">
+                            <div class="ribbon">Java & Spring</div>
+                        </div>
+                        <div class="card-image">
+                            <a href="projets-gestion-inventaire" title="Inventory Manager">
+                                <img src="img/inventory-thumbnail.png" alt="Inventory Manager">
+                            </a>
+                        </div>
+                        <div class="card-text">
+                            <h4>Inventory Manager</h4>
+                            <div class="card-description">
+                                <p>Application de gestion d'inventaire développée en Java avec le framework Spring.</p>
+                            </div>
+                            <time class="card-date">
+                                2015
+                            </time>
+                        </div>
+                    </div>
 
-		<div id="software" class="section">
-			<div class="section-fr">
-				<div class="section-main">
-					<h2>PolyAdventure</h2>
-					<div class="section-content">
-						Programmation d'un jeu vidéo en C
-					</div>
-				</div>
-			</div>
-			<div class="section-en">
-				<div class="section-main">
-					<h2>PolyAdventure</h2>
-					<div class="section-content">
-						Programming a video game in C
-					</div>
-				</div>
-			</div>
-			<div class="end-page">💻</div>
-		</div>
+                    <!-- Carte Projet 3 -->
+                    <div class="card">
+                        <div class="ribbon-wrapper">
+                            <div class="ribbon">Python & Django</div>
+                        </div>
+                        <div class="card-image">
+                            <a href="projets-site-web-ecommerce" title="E-Commerce Site">
+                                <img src="img/ecommerce-thumbnail.png" alt="E-Commerce Site">
+                            </a>
+                        </div>
+                        <div class="card-text">
+                            <h4>E-Commerce Site</h4>
+                            <div class="card-description">
+                                <p>Site de commerce électronique développé en Python avec Django.</p>
+                            </div>
+                            <time class="card-date">
+                                2020
+                            </time>
+                        </div>
+                    </div>
 
-		<div id="web" class="section">
-			<div class="section-fr">
-				<div class="section-main">
-					<h2>BubbleOS</h2>
-					<div class="section-content">
-						Programmation d'une interface de système d'exploitation en javaScript
-					</div>
-				</div>
-			</div>
-			<div class="section-en">
-				<div class="section-main">
-					<h2>BubbleOS</h2>
-					<div class="section-content">
-					</div>
-				</div>
-			</div>
-			<div class="end-page">🌐</div>
-		</div>
-	</div>
+                    <!-- Ajoutez d'autres cartes de projets ici -->
+                </div>
+            </div>
+        </section>
 
-	<!-- Contacts Section -->
-	<div id="contacts" class="section">
-		<div class="section-header" style="padding-left: 0px;">
-			<h1>Contacts</h1>
-			<p></p>
-		</div>
-		<!--
-		<div class="section-main">
-			<div class="section-fr">
-				<div class="section-content">
-					<form id="contactForm" action="mailto:clement01.charriere@gmail.com" method="post" enctype="text/plain">
-						<label for="name">Votre nom :</label>
-						<input type="text" id="name" name="name" required>
-						<br>
-						<label for="email">Votre mail :</label>
-						<input type="email" id="email" name="email" required>
-						<br>
+		<!-- Section de chaque projets -->
+
+		<!-- Projet Polyadventure -->
+		<section id="sectionProject-Polyadventure" class="subsection">
+            <h2 class="subsection-title">Polyadventure</h2>
+			<div class="subsection-content">
+                <h3>Capture</h3>
+				<img src="img/polyadventure-capture.png" alt="Capture d'écran du projet Polyadventure">
+			</div>
+            <div class="subsection-content">
+                <h3>Description</h3>
+                <p>Création d'un jeux 2D en C avec la librairie SDL2</p>
+            </div>
+		</section>
+
+        <section id="sectionProject-RedPitaya" class="subsection">
+            <h2 class="subsection-title">Red Pitaya</h2>
+            <div class="subsection-content">
+                <p class="paragraph indent">
+                    Programmation d'un système universel de mesures des figures de mérites d'un capteur MEMS sur Red Pitaya STEMlab 125-14.
+                </p>
+                <p class="paragraph indent">
+                    Le programme compilé à même la Red Pitaya permet de déterminer graphiquement la fréquence de résonnance et d'anti-résonnance du dispositif.
+                    L'application démodule le signal de sortie du dispositif et le signal de référence d'exitation généré par la Red Pitaya et comprare les résultats
+                    pour en déduire l'amplitude et la phase. Cette étape est répétée pour différentes fréquences d'exitation sur une plage de fréquences paramétrable.
+                    Le programme est écrit en C et C++ et utilise la bibliothèque de la Red Pitaya pour gérer ses périphériques et principalement les deux entrées et
+                    les deux sorties analogiques hautes perfomances (125MHz et 14 bits de réslution sur une pleine échelle de ±1V).
+                </p>
+                <div class="img-light-background">
+                    <img src="img/red-pitaya.png"></img>
+                    <p class="img-title">Red Pitaya STEMlab 125-14</p>
+                </div>
+            </div>
+        </section>
+
+		<!-- Section Contact -->
+		<section id="sectionContact" class="subsection">
+			<div class="subsection-content">
+				<h2>Contact</h2>
+				<p>Vous pouvez me contacter via email à <a href="mailto:clement.charriere@free.fr">clement.charriere@free.fr</a>.</p>
+				
+				<!-- Formulaire de Contact -->
+				<form id="contactForm" action="https://formspree.io/f/{your-form-id}" method="POST" class="contact-form">
+					<div class="form-group">
+						<label for="name">Nom :</label>
+						<input type="text" id="name" name="name" required placeholder="Votre nom">
+					</div>
+					<div class="form-group">
+						<label for="email">Email :</label>
+						<input type="email" id="email" name="_replyto" required placeholder="Votre email">
+					</div>
+					<div class="form-group">
+						<label for="subject">Sujet :</label>
+						<input type="text" id="subject" name="subject" required placeholder="Sujet de votre message">
+					</div>
+					<div class="form-group">
 						<label for="message">Message :</label>
-						<textarea id="message" name="message" required></textarea>
-						<br>
-						<button type="submit">Envoyer</button>
-					</form>
-				</div>
+						<textarea id="message" name="message" rows="5" required placeholder="Votre message"></textarea>
+					</div>
+					<button type="submit" class="submit-button">Envoyer</button>
+				</form>
 			</div>
-	
-			<div class="section-en">
-				<div class="section-content">
-					<form id="contactForm" action="mailto:clement01.charriere@gmail.com" method="post" enctype="text/plain">
-						<label for="name">Your name:</label>
-						<input type="text" id="name" name="name" required>
-						<br>
-						<label for="email">Your email:</label>
-						<input type="email" id="email" name="email" required>
-						<br>
-						<label for="message">Message:</label>
-						<textarea id="message" name="message" required></textarea>
-						<br>
-						<button type="submit">Send</button>
-					</form>
-				</div>
-			</div>
-		</div>
-		-->
+		</section>
+
 	</div>
 
-	
-	<div class="section-footer">
-		<div class="section-fr">
-			<p class="p-right">Dernière modification 06/09/2024</p>
-		</div>
-		<div class="section-en">
-			<p class="p-right">Last modification 06/09/2024</p>
-		</div>
-	</div>
-</div>
+	<!-- Pied de page fixe -->
+    <footer>
+        <p style="text-align: right;">Dernière modification 06/09/2024</p>
+    </footer>
+
+    <script src="./js/script.js"></script>
 
 </body>
+
 </html>

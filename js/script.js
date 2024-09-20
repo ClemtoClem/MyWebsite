@@ -4,7 +4,6 @@
  * Author URI : https://github.com/ClemtoClem/MyWebsite
  */
 
-
 /* Global events */
 var windowInfo = {
 	innerWidth : window.innerWidth,
@@ -30,31 +29,8 @@ window.addEventListener('resize', function() {
 	windowInfo.innerHeight = window.innerHeight;
 });
 
-
-
 /* Background animation ans events */
 function drawBackground() {
-	var UPDATE_SPEED_WITH_MOUSE = true;
-
-	var canvas = document.getElementById('backgroundCanvas');
-	var ctx = canvas.getContext('2d');
-
-	canvas.width = window.innerWidth;
-	canvas.height = window.innerHeight;
-
-	var width = canvas.width;
-	var height = canvas.height;
-	var gridSize = 50; // Taille de la grille
-	var viaRadius = 5; // Rayon du via
-	var lines = new Set(); // Stocke les lignes pour éviter les croisements
-
-	var speedx = 0.5; // Vitesse de déplacement de la grille en x
-	var speedy = 0.5; // Vitesse de déplacement de la grille en y
-	var targetSpeedx = 0;
-	var targetSpeedy = 0;
-	var maxSpeed = 1; // Vitesse maximale
-	var acceleration = 0.02; // Accélération pour atteindre la vitesse cible
-
 	function drawVia(x, y) {
 		ctx.beginPath();
 		ctx.arc(x, y, viaRadius, 0, 2 * Math.PI);
@@ -218,6 +194,28 @@ function drawBackground() {
 		setInterval(drawGrid, 5 * 60 * 1000); // Redessiner toutes les lignes toutes les 5 minutes
 	}
 
+	
+	var UPDATE_SPEED_WITH_MOUSE = true;
+
+	var canvas = document.getElementById('background-canvas');
+	var ctx = canvas.getContext('2d');
+
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+
+	var width = canvas.width;
+	var height = canvas.height;
+	var gridSize = 50; // Taille de la grille
+	var viaRadius = 5; // Rayon du via
+	var lines = new Set(); // Stocke les lignes pour éviter les croisements
+
+	var speedx = 0.5; // Vitesse de déplacement de la grille en x
+	var speedy = 0.5; // Vitesse de déplacement de la grille en y
+	var targetSpeedx = 0;
+	var targetSpeedy = 0;
+	var maxSpeed = 1; // Vitesse maximale
+	var acceleration = 0.02; // Accélération pour atteindre la vitesse cible
+
 	var numberOfLines = 100 + Math.random() * 200;  // nombre aléatoire de lignes entre 100 et 300
 
 	for (var i = 0; i < numberOfLines; i++) {
@@ -229,269 +227,106 @@ function drawBackground() {
 }
 
 window.addEventListener('resize', drawBackground);
-window.addEventListener('load', drawBackground);
 
+const sections_info = {
+	"sectionHome": {"title":'My web site', "subtitle": "Bienvenue sur la page d'accueil", "neon-text-effect": true},
+	"sectionAboutMe": {"title":'About Me', "subtitle": "A la recherche d'un stage de fin d'étude", "neon-text-effect": false},
+	"sectionCV": {"title":'Mon Curriculum Vitae', "subtitle": "Mon parcours professionnel", "neon-text-effect": false},
+	"sectionProjets": {"title":'Mes projets', "subtitle": "Mes projets personnels, professionnels et scolaires", "neon-text-effect": false},
+	"sectionContact": {"title":'Contact', "subtitle": "Me contacter", "neon-text-effect": false},
 
-
-
-
-function showSectionByLanguage(language) {
-	var fr_sections = document.getElementsByClassName("section-fr");
-	var en_sections = document.getElementsByClassName("section-en");
-	if (language === "fr") {
-		for (var i = 0; i < fr_sections.length; i++) {
-			fr_sections[i].style.display = "block";
-		}
-		for (var i = 0; i < en_sections.length; i++) {
-			en_sections[i].style.display = "none";
-		}
-	} else if (language === "en") {
-		for (var i = 0; i < fr_sections.length; i++) {
-			fr_sections[i].style.display = "none";
-		}
-		for (var i = 0; i < en_sections.length; i++) {
-			en_sections[i].style.display = "block";
-		}
-	}
-
+	/* sections de chaque projet */
+	"sectionProject-Polyadventure": {"title":'Polyadventure', "subtitle": "Un projet personnel", "neon-text-effect": false},
+	"sectionProject-RedPitaya": {"title":'Red Pitaya', "subtitle": "Un projet professionnel", "neon-text-effect": false},
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-	showSectionByLanguage();
-	var fr_btn = document.getElementById("btn-fr");
-	var en_btn = document.getElementById("btn-en");
-
-	fr_btn.addEventListener("click", function() {
-		if (!fr_btn.classList.contains("btn-active")) {
-			fr_btn.classList.add('btn-active');
-			en_btn.classList.remove('btn-active');
-			showSectionByLanguage("fr");
-		}
-	});
-	en_btn.addEventListener("click", function() {
-		if (!en_btn.classList.contains("btn-active")) {
-			en_btn.classList.add('btn-active');
-			fr_btn.classList.remove('btn-active');
-			showSectionByLanguage("en");
-		}
-	});
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-	showSectionByLanguage("fr");
-})
-
-
-
-
-
-
-
-function drawNavClose() {
-	var navbar = document.getElementById("myNavbar");
-	var hamburger = document.getElementById("hamburger");
-	var content = document.querySelector('.content');
-	/*var sections = document.querySelectorAll('.section');*/
-	var sections_header = document.querySelectorAll('.section-header');
-	var sections_footer = document.querySelectorAll('.section-footer');
-
-	navbar.style.left = "0px";
-	content.style.marginLeft = "250px";
-	hamburger.style.left = "200px";
-	hamburger.classList.add("change");
-	// Modification de la marge haute des sections (sauf la première)
-	/*for (var i = 0; i < sections.length; i++) {
-		sections[i].style.marginTop = "20px";
-	}*/
-	for (var i = 0; i < sections_header.length; i++) {
-		sections_header[i].style.paddingLeft = "10px";
-		sections_header[i].style.left = "250px";
-		sections_header[i].style.width = document.body.clientWidth - 270 + "px";
-	}
-	for (var i = 0; i < sections_footer.length; i++) {
-		sections_footer[i].style.left = "250px";
-		sections_footer[i].style.width = document.body.clientWidth - 270 + "px";
-	}
+// Fonction pour basculer l'affichage de la barre latérale
+function toggleMenu() {
+    const sidebar = document.getElementById("sidebar");
+    document.body.classList.toggle("menu-open");
+    sidebar.classList.toggle("open");
 }
 
-function drawNavOpen() {
-	var navbar = document.getElementById("myNavbar");
-	var hamburger = document.getElementById("hamburger");
-	var content = document.querySelector('.content');
-	/*var sections = document.querySelectorAll('.section');*/
-	var sections_header = document.querySelectorAll('.section-header');
-	var sections_footer = document.querySelectorAll('.section-footer');
-
-	navbar.style.left = "-250px";
-	content.style.marginLeft = "0px";
-	hamburger.style.left = "15px";
-	hamburger.classList.remove("change");
-	
-	for (var i = 0; i < sections_header.length; i++) {
-		//console.log(sections_header[i].innerHTML);
-		sections_header[i].style.paddingLeft = "75px";
-		sections_header[i].style.left = "0px";
-		sections_header[i].style.width = document.body.clientWidth - 150 + "px";
-	}
-	for (var i = 0; i < sections_footer.length; i++) {
-		//console.log(sections_footer[i].innerHTML);
-		sections_footer[i].style.left = "0px";
-		sections_footer[i].style.width = document.body.clientWidth - 20 + "px";
-	}
+function closeMenu() {
+    const sidebar = document.getElementById("sidebar");
+    document.body.classList.remove("menu-open");
+    sidebar.classList.remove("open");
 }
 
-function toggleNav() {
-	var navbar = document.getElementById("myNavbar");
-	
-	if (navbar.style.left === "0px") {
-		drawNavOpen();
-	} else {
-		drawNavClose();
-	}
-}
-
-function updateNav() {
-	var navbar = document.getElementById("myNavbar");
-	
-	if (navbar.style.left === "0px") {
-		drawNavClose();
-	} else {
-		drawNavOpen();
-	}
-}
-
+// Fonction pour afficher une sous-section spécifique
 function showSection(sectionId) {
-	var sections = document.querySelectorAll('.section');
-	sections.forEach(function(section) {
-		section.classList.remove('active');
-	});
-	document.getElementById(sectionId).classList.add('active');
+    // Masquer toutes les sous-sections
+    const sections = document.querySelectorAll(".subsection");
+    sections.forEach(section => section.classList.remove("active"));
+
+    // Afficher la sous-section sélectionnée
+    const selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.classList.add("active");
+    }
+
+    // Mettre à jour le titre et le sous-titre de l'en-tête
+	const info = sections_info[sectionId];
+    let header_title = document.getElementById("header-title")
+	header_title.textContent = info["title"];
+	if (info["neon-text-effect"]) {
+		header_title.classList.add("neon-text-effect");
+	} else {
+		header_title.classList.remove("neon-text-effect");
+	}
+    document.getElementById("header-subtitle").textContent = info["subtitle"];
+
+	document.title = info["title"]; // Update document title
+
+    // Fermer le menu après sélection (optionnel)
+    closeMenu();
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-	updateNav();
-})
-
-window.addEventListener('resize', function() {
-	updateNav();
+// Fermer le menu si l'utilisateur clique en dehors de celui-ci
+window.addEventListener('click', function (event) {
+    const sidebar = document.getElementById("sidebar");
+    const hamburger = document.querySelector(".hamburger");
+    if (!sidebar.contains(event.target) && !hamburger.contains(event.target) && sidebar.classList.contains("open")) {
+        toggleMenu();
+    }
 });
 
-
-
-
-
-
-document.addEventListener("DOMContentLoaded", function() {
-	// Créer l'élément tooltip
-	var tooltip = document.createElement('div');
-	tooltip.classList.add('tooltip');
-	document.body.appendChild(tooltip);
-
-	// Ajouter les événements de survol et de déplacement de la souris pour chaque lien
-	var links = document.querySelectorAll('a');
-	links.forEach(function(link) {
-		link.addEventListener('mouseenter', function(event) {
-			var imgSrc;
-			switch (link.id) {
-				case 'a-polytech':
-					imgSrc = 'img/polytech-grenoble.jpg';
-					break;
-				case 'a-IUT1':
-					imgSrc = 'img/IUT1-grenoble.jpeg';
-					break;
-				case 'a-lycee':
-					imgSrc = 'img/lycee-les-eaux-claires-grenoble.jpg';
-					break;
-				case 'a-TIMA':
-					imgSrc = 'img/TIMA-grenoble.jpeg';
-					break;
-				case 'a-Itancia':
-					imgSrc = 'img/itancia-grenoble.png';
-					break;
-				case 'a-Carrefour':
-					imgSrc = 'img/carrefour-st-egreve.png';
-					break;
-				default:
-					return;
-			}
-			tooltip.innerHTML = '<img src="' + imgSrc + '" alt="Image de l\'établissement">';
-			tooltip.innerHTML += '<p style=\"font-size:12px;\">' + document.getElementById(link.id).getAttribute("href") + '</p>';
-			tooltip.style.display = 'block';
-		});
-
-		link.addEventListener('mouseleave', function() {
-			tooltip.style.display = 'none';
-		});
-
-		link.addEventListener('mousemove', function(event) {
-			var posX = event.pageX + 10;
-			if (event.pageX + tooltip.offsetWidth >= window.innerWidth) {
-				posX = window.innerWidth - tooltip.offsetWidth - 10;
-			}
-			tooltip.style.left = posX + 'px';
-
-			var posY = event.pageY + 10;
-			if (event.pageY + tooltip.offsetHeight >= window.innerHeight) {
-				posY = window.innerHeight - tooltip.offsetHeight - 10;
-			}
-			tooltip.style.top = posY + 'px';
-		});
-	});
-});
-
-
-
-
-
-
-
-
-function showProjectSection(idSection) {
-	var project_section = document.getElementById("projects");
-	var sub_sections = project_section.getElementsByClassName("section");
-	for (var i = 0; i < sub_sections.length; i++) {
-		if (sub_sections[i].id === idSection) {
-			sub_sections[i].style.display = "block";
-		} else {
-			sub_sections[i].style.display = "none";
-		}
-	}
+function downloadCV() {
+	const cvFileName = 'pdf/CV_CHARRIERE_Clement_2024.pdf';
+	const link = document.createElement('a');
+	link.href = cvFileName;
+	link.download = 'CV_CHARRIERE_Clement_2024.pdf';
+	link.click();
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-	// Montre la section 'hardware' par défaut
-	showProjectSection("hardware");
+/* Ajout de la validation du formulaire */
+// Validation du Formulaire de Contact
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
 
-	var sections = ["hardware", "firmware", "software", "web"];
-	var btn = []
-	for (var i = 0; i < sections.length; i++) {
-		btn.push(document.getElementById("btn-" + sections[i]));
-	}
+    if (!name || !email || !subject || !message) {
+        alert('Veuillez remplir tous les champs du formulaire.');
+        event.preventDefault(); // Empêche la soumission du formulaire
+    }
 
-	// Ajoute un événement click pour chaque bouton
-	btn.forEach(function(button, index) {
-		button.addEventListener("click", function() {
-			// Si le bouton n'a pas déjà la classe 'btn-active'
-			if (!this.classList.contains("btn-active")) {
-				// Ajoute la classe 'btn-active' au bouton cliqué
-				this.classList.add('btn-active');
-				
-				// Retire la classe 'btn-active' des autres boutons
-				btn.forEach(function(otherButton) {
-					if (otherButton !== button) {
-						otherButton.classList.remove('btn-active');
-					}
-				});
-
-				// Affiche la section correspondante
-				showProjectSection(sections[index]);
-			}
-		});
-	});
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-	showProjectSection("hardware");
+    // Simple validation de l'email
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+        alert('Veuillez entrer une adresse email valide.');
+        event.preventDefault();
+    }
 });
 
 
+
+/* Fonction pour charger la page */
+function load() {
+	drawBackground();
+
+	showSection('sectionHome');
+}
+
+window.addEventListener('DOMContentLoaded', load);
