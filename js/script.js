@@ -285,7 +285,7 @@ function showSection(sectionId) {
 // Fermer le menu si l'utilisateur clique en dehors de celui-ci
 window.addEventListener('click', function (event) {
 	const sidebar = document.getElementById("sidebar");
-	const hamburger = document.querySelector(".hamburger");
+	const hamburger = document.querySelector("#hamburger");
 	if (!sidebar.contains(event.target) && !hamburger.contains(event.target) && sidebar.classList.contains("open")) {
 		toggleMenu();
 	}
