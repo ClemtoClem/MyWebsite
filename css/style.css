@@ -94,7 +94,7 @@ header {
 	padding-top: 20px;
 	font-family: 'Leckerli One', cursive;
 	font-size: 25px;
-	z-index: 1000;
+	z-index: 10;
 }
 
 /* Liens de navigation */
@@ -130,6 +130,11 @@ header {
 	z-index: 1001;
 }
 
+body.menu-open #hamburger {
+	left: -50px;
+	transition: left 0.5s;
+}
+
 #hamburger-bar1, #hamburger-bar2, #hamburger-bar3 {
 	width: 35px;
 	height: 5px;
@@ -138,15 +143,15 @@ header {
 	transition: 0.4s;
 }
 
-#sidebar.open #hamburger-bar1 {
+body.menu-open #hamburger-bar1 {
 	transform: rotate(-45deg) translate(-9px, 6px);
 }
 
-#sidebar.open #hamburger-bar2 {
+body.menu-open #hamburger-bar2 {
 	opacity: 0;
 }
 
-#sidebar.open #hamburger-bar3 {
+body.menu-open #hamburger-bar3 {
 	transform: rotate(45deg) translate(-8px, -8px);
 }
 

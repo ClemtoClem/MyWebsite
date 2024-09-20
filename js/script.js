@@ -231,7 +231,7 @@ window.addEventListener('resize', drawBackground);
 const sections_info = {
 	"sectionHome": {"title":'My web site', "subtitle": "Bienvenue sur la page d'accueil", "neon-text-effect": true},
 	"sectionAboutMe": {"title":'About Me', "subtitle": "A la recherche d'un stage de fin d'étude", "neon-text-effect": false},
-	"sectionCV": {"title":'Mon Curriculum Vitae', "subtitle": "Mon parcours professionnel", "neon-text-effect": false},
+	"sectionCV": {"title":'Mon Curriculum Vitae', "subtitle": "Mon parcours professionnel et scolaire", "neon-text-effect": false},
 	"sectionProjets": {"title":'Mes projets', "subtitle": "Mes projets personnels, professionnels et scolaires", "neon-text-effect": false},
 	"sectionContact": {"title":'Contact', "subtitle": "Me contacter", "neon-text-effect": false},
 
@@ -242,53 +242,53 @@ const sections_info = {
 
 // Fonction pour basculer l'affichage de la barre latérale
 function toggleMenu() {
-    const sidebar = document.getElementById("sidebar");
-    document.body.classList.toggle("menu-open");
-    sidebar.classList.toggle("open");
+	const sidebar = document.getElementById("sidebar");
+	document.body.classList.toggle("menu-open");
+	sidebar.classList.toggle("open");
 }
 
 function closeMenu() {
-    const sidebar = document.getElementById("sidebar");
-    document.body.classList.remove("menu-open");
-    sidebar.classList.remove("open");
+	const sidebar = document.getElementById("sidebar");
+	document.body.classList.remove("menu-open");
+	sidebar.classList.remove("open");
 }
 
 // Fonction pour afficher une sous-section spécifique
 function showSection(sectionId) {
-    // Masquer toutes les sous-sections
-    const sections = document.querySelectorAll(".subsection");
-    sections.forEach(section => section.classList.remove("active"));
+	// Masquer toutes les sous-sections
+	const sections = document.querySelectorAll(".subsection");
+	sections.forEach(section => section.classList.remove("active"));
 
-    // Afficher la sous-section sélectionnée
-    const selectedSection = document.getElementById(sectionId);
-    if (selectedSection) {
-        selectedSection.classList.add("active");
-    }
+	// Afficher la sous-section sélectionnée
+	const selectedSection = document.getElementById(sectionId);
+	if (selectedSection) {
+		selectedSection.classList.add("active");
+	}
 
-    // Mettre à jour le titre et le sous-titre de l'en-tête
+	// Mettre à jour le titre et le sous-titre de l'en-tête
 	const info = sections_info[sectionId];
-    let header_title = document.getElementById("header-title")
+	let header_title = document.getElementById("header-title")
 	header_title.textContent = info["title"];
 	if (info["neon-text-effect"]) {
 		header_title.classList.add("neon-text-effect");
 	} else {
 		header_title.classList.remove("neon-text-effect");
 	}
-    document.getElementById("header-subtitle").textContent = info["subtitle"];
+	document.getElementById("header-subtitle").textContent = info["subtitle"];
 
 	document.title = info["title"]; // Update document title
 
-    // Fermer le menu après sélection (optionnel)
-    closeMenu();
+	// Fermer le menu après sélection (optionnel)
+	closeMenu();
 }
 
 // Fermer le menu si l'utilisateur clique en dehors de celui-ci
 window.addEventListener('click', function (event) {
-    const sidebar = document.getElementById("sidebar");
-    const hamburger = document.querySelector(".hamburger");
-    if (!sidebar.contains(event.target) && !hamburger.contains(event.target) && sidebar.classList.contains("open")) {
-        toggleMenu();
-    }
+	const sidebar = document.getElementById("sidebar");
+	const hamburger = document.querySelector(".hamburger");
+	if (!sidebar.contains(event.target) && !hamburger.contains(event.target) && sidebar.classList.contains("open")) {
+		toggleMenu();
+	}
 });
 
 function downloadCV() {
@@ -302,22 +302,22 @@ function downloadCV() {
 /* Ajout de la validation du formulaire */
 // Validation du Formulaire de Contact
 document.getElementById('contactForm').addEventListener('submit', function(event) {
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const subject = document.getElementById('subject').value.trim();
-    const message = document.getElementById('message').value.trim();
+	const name = document.getElementById('name').value.trim();
+	const email = document.getElementById('email').value.trim();
+	const subject = document.getElementById('subject').value.trim();
+	const message = document.getElementById('message').value.trim();
 
-    if (!name || !email || !subject || !message) {
-        alert('Veuillez remplir tous les champs du formulaire.');
-        event.preventDefault(); // Empêche la soumission du formulaire
-    }
+	if (!name || !email || !subject || !message) {
+		alert('Veuillez remplir tous les champs du formulaire.');
+		event.preventDefault(); // Empêche la soumission du formulaire
+	}
 
-    // Simple validation de l'email
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        alert('Veuillez entrer une adresse email valide.');
-        event.preventDefault();
-    }
+	// Simple validation de l'email
+	const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+	if (!emailPattern.test(email)) {
+		alert('Veuillez entrer une adresse email valide.');
+		event.preventDefault();
+	}
 });
 
 
