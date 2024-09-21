@@ -238,6 +238,7 @@ const sections_info = {
 	/* sections de chaque projet */
 	"sectionProject-Polyadventure": {"title":'Polyadventure', "subtitle": "Un projet personnel", "neon-text-effect": false},
 	"sectionProject-RedPitaya": {"title":'Red Pitaya', "subtitle": "Un projet professionnel", "neon-text-effect": false},
+	"sectionProject-RobotHolonome": {"title":'Robot Holonome', "subtitle": "Un projet scolaire", "neon-text-effect": false},
 }
 
 // Fonction pour basculer l'affichage de la barre latérale
@@ -291,6 +292,52 @@ window.addEventListener('click', function (event) {
 	}
 });
 
+const tooltip_info = {
+	"a-polytech": {"img":'img/polytech-grenoble.jpg'},
+	"a-IUT1": {"img":'img/IUT1-grenoble.jpeg'},
+	"a-lycee": {"img":'img/lycee-les-eaux-claires-grenoble.jpg'},
+	"a-TIMA": {"img":'img/TIMA-grenoble.jpeg'},
+	"a-Itancia1": {"img":'img/itancia-grenoble.png'},
+	"a-Itancia2": {"img":'img/itancia-grenoble.png'},
+	"a-Carrefour": {"img":'img/carrefour-st-egreve.jpeg'},
+};
+
+function createTooltip() {
+	// Créer l'élément tooltip
+	var tooltip = document.createElement('div');
+	tooltip.classList.add('tooltip');
+	document.body.appendChild(tooltip);
+
+	// Ajouter les événements de survol et de déplacement de la souris pour chaque lien
+	var links = document.querySelectorAll('a');
+	links.forEach(function(link) {
+		link.addEventListener('mouseenter', function(event) {
+			var imgSrc = tooltip_info[link.id]["img"];
+			tooltip.innerHTML = '<img src="' + imgSrc + '" alt="Image de l\'établissement">';
+			tooltip.innerHTML += '<p style=\"font-size:12px;\">' + document.getElementById(link.id).getAttribute("href") + '</p>';
+			tooltip.style.display = 'block';
+		});
+
+		link.addEventListener('mouseleave', function() {
+			tooltip.style.display = 'none';
+		});
+
+		link.addEventListener('mousemove', function(event) {
+			var posX = event.pageX;
+			if (event.pageX + tooltip.offsetWidth >= window.innerWidth) {
+				posX = window.innerWidth - tooltip.offsetWidth - 10;
+			}
+			tooltip.style.left = posX + 'px';
+
+			var posY = event.pageY;
+			if (event.pageY + tooltip.offsetHeight >= window.innerHeight) {
+				posY = window.innerHeight - tooltip.offsetHeight - 10;
+			}
+			tooltip.style.top = posY + 'px';
+		});
+	});
+}
+
 function downloadCV() {
 	const cvFileName = 'pdf/CV_CHARRIERE_Clement_2024.pdf';
 	const link = document.createElement('a');
@@ -323,10 +370,10 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 
 
 /* Fonction pour charger la page */
-function load() {
+window.addEventListener('DOMContentLoaded', function() {
+	createTooltip();
+	
 	drawBackground();
 
 	showSection('sectionHome');
-}
-
-window.addEventListener('DOMContentLoaded', load);
+});
