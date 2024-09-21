@@ -9,7 +9,7 @@
 body {
 	margin: 0;
 	position: relative;
-	min-height: 100vh;
+	min-height:100vh;
 	overflow: hidden;
 	font-family: Arial, sans-serif;
 	/* Ajout d'une police par défaut */
@@ -30,15 +30,15 @@ body {
 .canvas-background {
 	top: 0;
 	left: 0;
-	width: 100vmax;
-	height: 100vmax;
+	width: 100%;
+	height: 100vh;
 	background:
-		radial-gradient(circle, #c78814 0.3vmin, #fff0 0) 50% 50% / 37% 37%,
-		radial-gradient(circle, #fffee1 0.2vmin, #fff0 0) -60% -6% / 67% 45%,
-		radial-gradient(circle, #fffee1 0.2vmin, #fff0 0) 17% 23% / 57% 39%,
-		radial-gradient(circle, #fffee1 0.3vmin, #fff0 0) -10% -25% / 78% 58%,
-		radial-gradient(circle, #c78814 0.2vmin, #fff0 0) -25% 35% / 78% 58%,
-		radial-gradient(circle, #fffee1 0.2vmin, #fff0 0) -21% 56% / 47% 55%,
+		radial-gradient(circle, #c78814 0.3%, #fff0 0) 50% 50% / 37% 37%,
+		radial-gradient(circle, #fffee1 0.2%, #fff0 0) -60% -6% / 67% 45%,
+		radial-gradient(circle, #fffee1 0.2%, #fff0 0) 17% 23% / 57% 39%,
+		radial-gradient(circle, #fffee1 0.3%, #fff0 0) -10% -25% / 78% 58%,
+		radial-gradient(circle, #c78814 0.2%, #fff0 0) -25% 35% / 78% 58%,
+		radial-gradient(circle, #fffee1 0.2%, #fff0 0) -21% 56% / 47% 55%,
 		linear-gradient(#011222 60%, #5a4d01 90%),
 		#000;
 	animation: scrollBackground 240s linear infinite;
@@ -55,10 +55,10 @@ body {
 /* Styles des nuages */
 .cloud,
 .cloud::before {
-	top: 40vmax;
+	top: 40%;
 	left: 0;
 	width: 100%;
-	height: 60vmax;
+	height: 60%;
 	--cloud-color: #8a8a8a;
 	--cloud:
 		radial-gradient(farthest-side circle at 4% 25%, var(--cloud-color) 10%, #fff0 0),
@@ -66,27 +66,27 @@ body {
 		radial-gradient(farthest-side circle at 42% 36%, var(--cloud-color) 15%, #fff0 0),
 		radial-gradient(farthest-side circle at 50% 45%, var(--cloud-color) 8%, #fff0 0),
 		radial-gradient(farthest-side circle at 65% 58%, var(--cloud-color) 19%, #fff0 0),
-		radial-gradient(farthest-side circle at 80%33%, var(--cloud-color) 15%, #fff0 0),
+		radial-gradient(farthest-side circle at 80% 33%, var(--cloud-color) 15%, #fff0 0),
 		radial-gradient(farthest-side circle at 96% 30%, var(--cloud-color) 12%, #fff0 0),
 		linear-gradient(#0000 40%, var(--cloud-color) 40%);
 	opacity: 0.2;
 	background: var(--cloud);
-	filter: blur(1vmin);
+	filter: blur(10px);
 }
 
 /* Styles des nuages ::before */
 .cloud::before {
 	--cloud-color: #fff;
 	content: "";
-	transform: translate(0, -46%) scaleX(-1.4);
+	transform: translate(0, -30%) scaleX(-1.4);
 	opacity: 0.55;
-	filter: blur(0.25vmin);
+	filter: blur(1px);
 }
 
 /* Styles de la ville */
 .city {
 	width: 100%;
-	height: 40vmax;
+	height: 40%;
 	left: 0;
 	bottom: 0;
 }
@@ -99,18 +99,27 @@ body {
 	left: 0;
 	background:
 		linear-gradient(#0000 50%, #000c),
-		conic-gradient(from 90deg at 98% 95%, #ffffff65 90deg, #0000 0) 0% 20% / 20vmax 20vmax,
-		conic-gradient(from 90deg at 98% 95%, #ffff004d 90deg, #0000 0) 17% 25% / 22vmax 20vmax,
-		conic-gradient(from 90deg at 98% 95%, #ffff004d 90deg, #0000 0) 21% 17% / 17vmax 21vmax,
-		conic-gradient(from 90deg at 98% 95%, #ffffff65 90deg, #0000 0) 18.5% -35% / 20vmax 23vmax,
-		conic-gradient(from 90deg at 96% 94%, #ffffff65 90deg, #0000 0) -8% -43% / 12vmax 19vmax,
+		conic-gradient(from 90deg at 98% 95%, #ffffff65 90deg, #0000 0) 0% 50% / 20% 20%,
+		conic-gradient(from 90deg at 98% 95%, #ffff004d 90deg, #0000 0) 17% 25% / 22% 20%,
+		conic-gradient(from 90deg at 98% 95%, #ffff004d 90deg, #0000 0) 21% 40% / 17% 21%,
+		conic-gradient(from 90deg at 98% 95%, #ffff004d 90deg, #0000 0) 90% 4% / 21% 21%,
+		conic-gradient(from 90deg at 98% 95%, #ffff004d 90deg, #0000 0) 6% 88% / 21% 21%,
+		conic-gradient(from 90deg at 98% 95%, #ffff004d 90deg, #0000 0) 7% 82% / 21% 21%,
+		conic-gradient(from 90deg at 98% 95%, #ffffff65 90deg, #0000 0) 18.5% -35% / 20% 23%,
+		conic-gradient(from 90deg at 96% 94%, #ffffff65 90deg, #0000 0) -8% -43% / 12% 19%,
 		linear-gradient(#3a3a3a67, #000224),
 		#000;
-	clip-path: polygon(-5% 40%, 5% 40%, 5% 20%, 15% 20%, 15% 55%, 17% 55%, 17% 65%, 20% 65%,
-			22% 65%, 22% 27%, 29% 27%, 29% 46%, 33% 46%, 33% 42%, 44% 42%, 44% 60%,
-			50% 60%, 50% 10%, 52.5% 10%, 53% 0%, 53.5% 10%, 56% 10%, 56% 65%,
-			60% 65%, 70% 65%, 70% 32%, 71% 32%, 71% 28%, 72% 28%, 72% 15%, 76% 15%,
-			76% 28%, 77% 28%, 77% 32%, 78% 32%, 78% 45%, 80% 45%, 80% 37%, 85% 37%,
-			85% 49%, 88% 49%, 88% 70%, 92% 70%, 92% 59%, 94% 59%, 98% 70%, 98% 40%,
-			105% 40%, 105% 105%, -5% 105%)
+		clip-path: polygon(
+			-5% 40%, 2.5% 40%, 2.5% 20%, 7.5% 20%, 7.5% 55%, 8.5% 55%, 8.5% 65%, 10% 65%,
+			11% 65%, 11% 27%, 14.5% 27%, 14.5% 46%, 16.5% 46%, 16.5% 42%, 22% 42%, 22% 60%,
+			25% 60%, 25% 10%, 26.25% 10%, 26.5% 0%, 26.75% 10%, 28% 10%, 28% 65%, 
+			30% 65%, 35% 65%, 35% 32%, 35.5% 32%, 35.5% 28%, 36% 28%, 36% 15%, 38% 15%,
+			38% 28%, 39% 28%, 39% 32%, 39% 32%, 39% 45%, 40% 45%, 40% 37%, 42.5% 37%,
+			42.5% 49%, 44% 49%, 44% 70%, 46% 70%, 46% 59%, 47% 59%, 49% 70%, 49% 40%,
+			52.5% 40%, 52.5% 30%, 55% 30%, 55% 55%, 60% 55%, 60% 80%, 66% 80%, 66% 25%,
+			66.5% 25%, 66.5% 20%, 67% 20%, 67% 11%, 68% 11%, 68% 9.5%, 69.5% 9.5%, 69.5% 11%,
+			71% 11%, 71% 20%, 71.5% 20%, 71.5% 25%, 72% 25%, 72% 50%, 74% 50%, 74% 40%,
+			80% 50%, 80% 80%, 80.25% 80%, 80.25% 65%, 82% 65%, 82.5% 52%, 83% 65%, 85% 65%, 85% 80%,
+			90% 80%, 90% 60%, 95% 60%, 95% 40%, 100% 40%, 105% 105%, -5% 105%
+		)
 }
