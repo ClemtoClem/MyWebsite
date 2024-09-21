@@ -205,7 +205,7 @@ function drawBackground() {
 
 	var width = canvas.width;
 	var height = canvas.height;
-	var gridSize = 50; // Taille de la grille
+	var gridSize = 40; // Taille de la grille
 	var viaRadius = 5; // Rayon du via
 	var lines = new Set(); // Stocke les lignes pour éviter les croisements
 
@@ -299,43 +299,56 @@ const tooltip_info = {
 	"a-TIMA": {"img":'img/TIMA-grenoble.jpeg'},
 	"a-Itancia1": {"img":'img/itancia-grenoble.png'},
 	"a-Itancia2": {"img":'img/itancia-grenoble.png'},
-	"a-Carrefour": {"img":'img/carrefour-st-egreve.jpeg'},
+	"a-Carrefour": {"img":'img/carrefour-st-egreve.png'},
 };
 
 function createTooltip() {
-	// Créer l'élément tooltip
-	var tooltip = document.createElement('div');
-	tooltip.classList.add('tooltip');
-	document.body.appendChild(tooltip);
+    // Créer l'élément tooltip
+    var tooltip = document.createElement('div');
+    tooltip.classList.add('tooltip');
+    tooltip.style.display = 'none'; // Masquer par défaut
+    document.body.appendChild(tooltip);
 
-	// Ajouter les événements de survol et de déplacement de la souris pour chaque lien
-	var links = document.querySelectorAll('a');
-	links.forEach(function(link) {
-		link.addEventListener('mouseenter', function(event) {
-			var imgSrc = tooltip_info[link.id]["img"];
-			tooltip.innerHTML = '<img src="' + imgSrc + '" alt="Image de l\'établissement">';
-			tooltip.innerHTML += '<p style=\"font-size:12px;\">' + document.getElementById(link.id).getAttribute("href") + '</p>';
-			tooltip.style.display = 'block';
-		});
+    // Ajouter les événements de survol et de déplacement de la souris pour chaque lien avec un ID dans tooltip_info
+    var links = document.querySelectorAll('a[id]'); // Sélectionner uniquement les liens avec un attribut ID
+    links.forEach(function(link) {
+        if (tooltip_info.hasOwnProperty(link.id)) {
+            link.addEventListener('mouseenter', function(event) {
+                var imgSrc = tooltip_info[link.id]["img"];
+                var href = link.getAttribute("href");
+                tooltip.innerHTML = `
+                    <img src="${imgSrc}" alt="Image de l'établissement" style="max-width: 200px; max-height: 150px;">
+                    <p style="font-size:12px; color: #fff; margin-top: 5px;">${href}</p>
+                `;
+                tooltip.style.display = 'block';
+            });
 
-		link.addEventListener('mouseleave', function() {
-			tooltip.style.display = 'none';
-		});
+            link.addEventListener('mouseleave', function() {
+                tooltip.style.display = 'none';
+            });
 
-		link.addEventListener('mousemove', function(event) {
-			var posX = event.pageX;
-			if (event.pageX + tooltip.offsetWidth >= window.innerWidth) {
-				posX = window.innerWidth - tooltip.offsetWidth - 10;
-			}
-			tooltip.style.left = posX + 'px';
+            link.addEventListener('mousemove', function(event) {
+                var posX = event.clientX + 15; // Ajouter un décalage pour éviter de couvrir le curseur
+                var posY = event.clientY + 15;
 
-			var posY = event.pageY;
-			if (event.pageY + tooltip.offsetHeight >= window.innerHeight) {
-				posY = window.innerHeight - tooltip.offsetHeight - 10;
-			}
-			tooltip.style.top = posY + 'px';
-		});
-	});
+                // Calculer les limites du tooltip
+                var tooltipRect = tooltip.getBoundingClientRect();
+                var windowWidth = window.innerWidth;
+                var windowHeight = window.innerHeight;
+
+                // Ajuster la position si le tooltip dépasse les bords de la fenêtre
+                if (posX + tooltipRect.width > windowWidth) {
+                    posX = windowWidth - tooltipRect.width - 10;
+                }
+                if (posY + tooltipRect.height > windowHeight) {
+                    posY = windowHeight - tooltipRect.height - 10;
+                }
+
+                tooltip.style.left = posX + 'px';
+                tooltip.style.top = posY + 'px';
+            });
+        }
+    });
 }
 
 function downloadCV() {
@@ -372,7 +385,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 /* Fonction pour charger la page */
 window.addEventListener('DOMContentLoaded', function() {
 	createTooltip();
-	
+
 	drawBackground();
 
 	showSection('sectionHome');

@@ -34,43 +34,46 @@ h3 {
 	background-color: #ffffff20;
 }
 
-/* En-tête fixe */
-header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 60px;
-	padding-left: 10px;
-	padding-right: 10px;
-	padding-top: 40px;
-	padding-bottom: 40px;
-
-	background-color: #ffffff14; /* Couleur de fond translucide */
-	backdrop-filter: blur(10px); /* Effet de flou */
-	display: flex;
-	align-items: center;
-	z-index: 999;
-	transition: margin-left 0.3s ease, width 0.3s ease;
+.p-justify {
+	text-align: justify;
+	margin: 0px;
+	padding: 2px;
 }
 
+.paragraph {
+	margin: 0px;
+	padding-bottom: 20px;
+}
 
-/* Conteneur du titre et sous-titre */
-.title-container {
-	display: flex;
-	flex-direction: column;
+.indent {
+	text-indent: 3em;
+}
+
+.p-center {
 	text-align: center;
-	width: 100%;
 }
 
-#header-title {
-	font-size: 32px;
-	font-family: 'Leckerli One', cursive;
+.p-right {
+	text-align: right;
+	padding-right: 10px;
 }
 
-#header-subtitle {
-	font-size: 22px;
-	font-weight: normal;
+a {
+	color: #f5f5f5;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #ff0303;
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: square;
+	list-style-position: inside;
+	list-style-image: none;
+	margin-left: 20px;
+	margin-bottom: 10px;
 }
 
 /* Barre latérale de navigation */
@@ -144,57 +147,55 @@ body.menu-open #hamburger-bar3 {
 	transform: rotate(45deg) translate(-8px, -8px);
 }
 
-.p-justify {
-	text-align: justify;
-	margin: 0px;
-	padding: 2px;
-}
-
-.paragraph {
-	margin: 0px;
-	padding-bottom: 20px;
-}
-
-.indent {
-	text-indent: 3em;
-}
-
-.p-center {
-	text-align: center;
-}
-
-.p-right {
-	text-align: right;
+/* En-tête fixe */
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 80px;
+	padding-left: 10px;
 	padding-right: 10px;
+	/*padding-top: 40px;
+	padding-bottom: 40px;*/
+
+	background-color: #ffffff14; /* Couleur de fond translucide */
+	backdrop-filter: blur(10px); /* Effet de flou */
+	display: flex;
+	align-items: center;
+	z-index: 999;
+	transition: transform 0.3s ease, width 0.3s ease;
 }
 
-a {
-	color: #f5f5f5;
-	text-decoration: none;
+
+/* Conteneur du titre et sous-titre */
+.title-container {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 100%;
 }
 
-a:hover {
-	color: #ff0303;
-	text-decoration: none;
+#header-title {
+	font-size: 32px;
+	font-family: 'Leckerli One', cursive;
 }
 
-ul {
-	list-style-type: square;
-	list-style-position: inside;
-	list-style-image: none;
-	margin-left: 20px;
-	margin-bottom: 10px;
+#header-subtitle {
+	font-size: 22px;
+	font-weight: normal;
 }
 
 /* Contenu principal */
 #main-content {
-	position: relative;
-	top: 60px;          /* Hauteur de l'en-tête */
+	position: fixed;
+	top: 80px;		/* Hauteur de l'en-tête */
 	padding: 20px;
-	margin: 0 auto;   /* Centre horizontalement */
-	max-width: 800px;
+	margin: 0 auto;	/* Centre horizontalement */
 	width: 100%;
-	transition: margin-left 0.3s ease, width 0.3s ease;
+	height: calc(100vh - 120px);  /* Hauteur dynamique basée sur la hauteur de la fenêtre moins l'en-tête */
+    overflow-y: auto;   /* Activer la scrollbar verticale */
+	transition: transform 0.3s ease, width 0.3s ease;
 }
 
 /* Sous-sections */
@@ -222,7 +223,8 @@ section.active {
 	border-top-color: #4e4b4bef;
 	border-right-color: #1b1b1bef;
 	border-bottom-color: #1b1b1bef;
-	background-color: #3f3d3daa;
+	background-color: #33303085;
+	backdrop-filter: sepia(80%) blur(1px); /* Effet de flou */
 	margin-bottom: 10px;
 
 	h3 {
@@ -258,12 +260,14 @@ footer {
 	align-items: center;
 	justify-content: center;
 	z-index: 999;
-	transition: margin-left 0.3s ease, width 0.3s ease;
+	transition: transform 0.3s ease, width 0.3s ease;
 }
 
-/* Lorsque le menu est ouvert, ajouter une marge à gauche */
-body.menu-open header, body.menu-open footer, body.menu-open #main-content {
-	margin-left: 250px;
+/* Lorsque le menu est ouvert, déplacer header, main-content et footer */
+body.menu-open header,
+body.menu-open #main-content,
+body.menu-open footer {
+	transform: translateX(250px);
 	width: calc(100% - 250px);
 }
 
@@ -306,8 +310,8 @@ body.menu-open header, body.menu-open footer, body.menu-open #main-content {
 /* Afficher un encadré avec une photo de l'école à la position de
 la souris lorsque celle-ci survole un lien (<a>) */
 .tooltip {
-	position:absolute;
-	display: none;
+	position: fixed; /* Positionné par rapport à la fenêtre visible */
+    display: none;
 	padding: 10px;
 	background-color: #000000cc;
 	color: #fff;
@@ -321,8 +325,9 @@ la souris lorsque celle-ci survole un lien (<a>) */
 	border-radius: 5px;
 }
 
+
 /* Styles des cartes de projets */
-.projects-container {
+.cards-container {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1.5rem;
@@ -333,7 +338,7 @@ la souris lorsque celle-ci survole un lien (<a>) */
 	position: relative;
 	width: 275px;
 	background: #fff;
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0 2px 4px 0 #00000033;
 	transition: all 0.2s ease-out;
 	border-radius: 8px;
 	overflow: hidden;
@@ -364,7 +369,7 @@ la souris lorsque celle-ci survole un lien (<a>) */
 	top: 19px;
 	left: -21px;
 	padding: 5px 0;
-	box-shadow: 0 3px 10px -5px rgba(0, 0, 0, 1);
+	box-shadow: 0 3px 10px -5px #000000;
 }
 
 .card-image {
