@@ -5,7 +5,7 @@
  */
 
 /* Global events */
-var windowInfo = {
+/*var windowInfo = {
 	innerWidth : window.innerWidth,
 	innerHeight : window.innerHeight,
 	mouseInside : true,
@@ -28,8 +28,9 @@ window.addEventListener('resize', function() {
 	windowInfo.innerWidth = window.innerWidth;
 	windowInfo.innerHeight = window.innerHeight;
 });
-
+*/
 /* Background animation ans events */
+/*
 function drawBackground() {
 	function drawVia(x, y) {
 		ctx.beginPath();
@@ -227,9 +228,10 @@ function drawBackground() {
 }
 
 window.addEventListener('resize', drawBackground);
+*/
 
 const sections_info = {
-	"sectionHome": {"title":'My web site', "subtitle": "Bienvenue sur la page d'accueil", "neon-text-effect": true},
+	"sectionHome": {"title":'My web site', "subtitle": "", "neon-text-effect": true},
 	"sectionAboutMe": {"title":'About Me', "subtitle": "A la recherche d'un stage de fin d'étude", "neon-text-effect": false},
 	"sectionCV": {"title":'Mon Curriculum Vitae', "subtitle": "Mon parcours professionnel et scolaire", "neon-text-effect": false},
 	"sectionProjets": {"title":'Mes projets', "subtitle": "Mes projets personnels, professionnels et scolaires", "neon-text-effect": false},
@@ -386,7 +388,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 window.addEventListener('DOMContentLoaded', function() {
 	createTooltip();
 
-	drawBackground();
+	//drawBackground();
 
 	showSection('sectionHome');
 });
