@@ -63,13 +63,13 @@ body {
 	background: #efe7f1;
 	background: radial-gradient(circle, #ded5e4e2 4%, #f8f6f6 100%);
 	border-color: #0000;
-	animation: move 5s infinite;
+	animation: move 60s infinite;
 	z-index: 1;
 }
 
 @keyframes move {
 	50% {
-		box-shadow: 0px 0px 70px 20px #f5e4e486, 0 0 70px 40px #f3edba86, 0px 0px 70px 40px #f8ef9b86;
+		box-shadow: 0 0 70px 20px #fffac9bb;
 	}
 }
 

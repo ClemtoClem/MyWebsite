@@ -187,6 +187,7 @@ header {
 	height: calc(100vh - 120px);  /* Hauteur dynamique basée sur la hauteur de la fenêtre moins l'en-tête */
     overflow-y: auto;   /* Activer la scrollbar verticale */
 	transition: transform 0.3s ease, width 0.3s ease;
+	z-index: 10;
 }
 
 /* Sous-sections */
