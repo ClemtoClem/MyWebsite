@@ -226,9 +226,6 @@ function drawBackground() {
 	drawGrid();
 }
 
-window.addEventListener('resize', drawBackground);
-
-
 const sections_info = {
 	"sectionHome": {"title":'My web site', "subtitle": "", "neon-text-effect": true},
 	"sectionAboutMe": {"title":'About Me', "subtitle": "A la recherche d'un stage de fin d'étude", "neon-text-effect": false},
@@ -293,29 +290,35 @@ window.addEventListener('click', function (event) {
 	}
 });
 
-const tooltip_info = {
-	"a-polytech": {"img":'img/polytech-grenoble.jpg'},
-	"a-IUT1": {"img":'img/IUT1-grenoble.jpeg'},
-	"a-lycee": {"img":'img/lycee-les-eaux-claires-grenoble.jpg'},
-	"a-TIMA": {"img":'img/TIMA-grenoble.jpeg'},
-	"a-Itancia1": {"img":'img/itancia-grenoble.png'},
-	"a-Itancia2": {"img":'img/itancia-grenoble.png'},
-	"a-Carrefour": {"img":'img/carrefour-st-egreve.png'},
+const links_info = {
+	"a-polytech": {"img":'img/polytech-grenoble.jpg', "href":"https://polytech.grenoble-inp.fr/"},
+	"a-IUT1": {"img":'img/IUT1-grenoble.jpeg', "href":"https://iut1.univ-grenoble-alpes.fr/"},
+	"a-lycee": {"img":'img/lycee-les-eaux-claires-grenoble.jpg', "href":"https://eaux-claires.ent.auvergnerhonealpes.fr/"},
+	"a-TIMA": {"img":'img/TIMA-grenoble.jpeg', "href":"https://tima.univ-grenoble-alpes.fr/"},
+	"a-Itancia1": {"img":'img/itancia-grenoble.png', "href":"https://itancia.com/"},
+	"a-Itancia2": {"img":'img/itancia-grenoble.png', "href":"https://itancia.com/"},
+	"a-Carrefour": {"img":'img/carrefour-st-egreve.png', "href":"https://www.carrefour.fr/magasin/saint-egreve"},
+	"a-SRD-05VDC-SL": {"img":'img/SRD-05VDC-SL.jpg', "href": "pdf/datasheets/SRD-05VDC-SL-C.pdf"},
+	"a-2N2218-2N2219": {"img":'img/2N2222A.webp', "href": "pdf/datasheets/2N2218-2N2219.pdf"},
+	"a-PIC18F4331": {"img":'img/PIC18F4431-J5X-FlipFlop2.avif', "href": "pdf/datasheets/PIC18F2331-2431-4331-4431.pdf"},
 };
 
-function createTooltip() {
+function createLinks() {
     // Créer l'élément tooltip
     var tooltip = document.createElement('div');
     tooltip.classList.add('tooltip');
     tooltip.style.display = 'none'; // Masquer par défaut
     document.body.appendChild(tooltip);
 
-    // Ajouter les événements de survol et de déplacement de la souris pour chaque lien avec un ID dans tooltip_info
+    // Ajouter les événements de survol et de déplacement de la souris pour chaque lien avec un ID dans links_info
     var links = document.querySelectorAll('a[id]'); // Sélectionner uniquement les liens avec un attribut ID
     links.forEach(function(link) {
-        if (tooltip_info.hasOwnProperty(link.id)) {
+        if (links_info.hasOwnProperty(link.id)) {
+			link.setAttribute("href", links_info[link.id]["href"]);
+			link.setAttribute("target", "_blank");
+
             link.addEventListener('mouseenter', function(event) {
-                var imgSrc = tooltip_info[link.id]["img"];
+                var imgSrc = links_info[link.id]["img"];
                 var href = link.getAttribute("href");
                 tooltip.innerHTML = `
                     <img src="${imgSrc}" alt="Image de l'établissement" style="max-width: 200px; max-height: 150px;">
@@ -438,10 +441,13 @@ function matrixAnimation() {
 
 /* Fonction pour charger la page */
 window.addEventListener('DOMContentLoaded', function() {
-	createTooltip();
+	createLinks();
 
-	matrixAnimation();
+	//matrixAnimation();
+	//window.addEventListener('resize', matrixAnimation);
+
 	//drawBackground();
+	//window.addEventListener('resize', drawBackground);
 
 	showSection('sectionHome');
 });
