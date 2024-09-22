@@ -5,7 +5,7 @@
  */
 
 /* Global events */
-/*var windowInfo = {
+var windowInfo = {
 	innerWidth : window.innerWidth,
 	innerHeight : window.innerHeight,
 	mouseInside : true,
@@ -28,9 +28,8 @@ window.addEventListener('resize', function() {
 	windowInfo.innerWidth = window.innerWidth;
 	windowInfo.innerHeight = window.innerHeight;
 });
-*/
+
 /* Background animation ans events */
-/*
 function drawBackground() {
 	function drawVia(x, y) {
 		ctx.beginPath();
@@ -198,7 +197,7 @@ function drawBackground() {
 	
 	var UPDATE_SPEED_WITH_MOUSE = true;
 
-	var canvas = document.getElementById('background-canvas');
+	var canvas = document.getElementById('canvas');
 	var ctx = canvas.getContext('2d');
 
 	canvas.width = window.innerWidth;
@@ -228,7 +227,7 @@ function drawBackground() {
 }
 
 window.addEventListener('resize', drawBackground);
-*/
+
 
 const sections_info = {
 	"sectionHome": {"title":'My web site', "subtitle": "", "neon-text-effect": true},
@@ -383,13 +382,13 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 });
 
 function matrixAnimation() {
-	var c = document.getElementById("matrix-canvas");
+	var c = document.getElementById("canvas");
 	if (c == null) return;
 	var ctx = c.getContext("2d");
 
 	//making the canvas full screen
-	c.height = window.innerHeight;
-	c.width = window.innerWidth;
+	c.height = window.outerHeight;
+	c.width = window.outerWidth;
 
 	//chinese characters - taken from the unicode charset
 	var matrix = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%+-/~{[|`]}";
@@ -406,18 +405,19 @@ function matrixAnimation() {
 		drops[x] = 1; 
 
 	//drawing the characters
-	function draw()
-	{
+	function draw() {
 		//Black BG for the canvas
 		//translucent BG to show trail
-		ctx.fillStyle = "rgba(0, 0, 0, 0.1)";
+		var gradient = ctx.createLinearGradient(0, c.height*60/100, 0, c.height*80/100);
+		gradient.addColorStop(0, "#01122236");
+		gradient.addColorStop(1, "#5a4d0136");
+		ctx.fillStyle = gradient;
 		ctx.fillRect(0, 0, c.width, c.height);
 
 		ctx.fillStyle = "#42f47dff";//green text
 		ctx.font = font_size + "px arial";
 		//looping over drops
-		for(var i = 0; i < drops.length; i++)
-		{
+		for(var i = 0; i < drops.length; i++) {
 			//a random chinese character to print
 			var text = matrix[Math.floor(Math.random()*matrix.length)];
 			//x = i*font_size, y = value of drops[i]*font_size
