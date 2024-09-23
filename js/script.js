@@ -443,8 +443,8 @@ function matrixAnimation() {
 window.addEventListener('DOMContentLoaded', function() {
 	createLinks();
 
-	//matrixAnimation();
-	//window.addEventListener('resize', matrixAnimation);
+	matrixAnimation();
+	window.addEventListener('resize', matrixAnimation);
 
 	//drawBackground();
 	//window.addEventListener('resize', drawBackground);
