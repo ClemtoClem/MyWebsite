@@ -15,7 +15,7 @@
 <body>
 
 	<!-- Canvas pour le fond d'écran -->
-	<div class="night-background-canvas">
+	<!--<div class="night-background-canvas">
 		<canvas id="canvas"></canvas>
 		<div class="stars"></div>
 		<div class="moon">
@@ -30,7 +30,8 @@
 		<div class="cloud"></div>
 		<div class="cloud"></div>
 		<div class="city"></div>
-	</div>
+	</div>-->
+	<canvas id="background-canvas"></canvas>
 
 	<!-- En-tête fixe -->
 	<header>
@@ -221,17 +222,38 @@
 
 			<h2 class="section-title">Mes compétences</h2>
 			<div class="section-content">
+				<h3>Electronique (hardware)</h3>
 				<ul>
-					<li><b>Programmation software & hardware :</b> Assembleur, Rust, C, C++, Shell linux, Python, Lua</li>
-					<li><b>Librairies graphique C/C++ :</b> SDL2, SDL2_image, SDL2_ttf, SDL2_mixer, SDL2_net, SDL2_gfx, glew, glm, GL, ncurses</li>
-					<li><b>Outils de compilation :</b>CMake Makefile</li>
+					<li><b>Conception de circuit imprimé :</b>Logiciel Kicad</li>
+					<li><b>Conception de circuit logique</b></li>
+					<li><b>Architecture des microprocesseur et processeur</b></li>
+				</ul>
+			</div>
+			<div class="section-content">
+				<h3>Informatique embarqué (firmware)</h3>
+				<ul>
+					<li><b>Languages de programmation :</b> Assembleur RiscV, C, C++, Shell linux</li>
+					<li><b>Programmation de système embarqué :</b> Gestion de l'energie, Gestion des ressources matériels, Système temps réel</li>
 					<li><b>Languages de description matériel :</b> VHDL SystemC</li>
+				</ul>
+			</div>
+			<div class="section-content">
+				<h3>Informatique (software)</h3>
+				<ul>
+					<li><b>Languages de programmation :</b> Assembleur x86, Rust, C, C++, Shell linux, Python, Lua, Json</li>
+					<li><b>Librairies graphique C/C++ :</b> SDL2, SDL2_image, SDL2_ttf, SDL2_mixer, SDL2_net, SDL2_gfx, glew, glm, GL, ncurses</li>
 					<li><b>Machine learning</b></li>
 					<li><b>Cybersécurité</b></li>
 					<li><b>Data processing</b></li>
 					<li><b>Programmation web :</b>JavaScript, CSS3, HTML5, NodeJs, Nginx, Jquery</li>
+				</ul>
+			</div>
+			<div class="section-content">
+				<h3>Matériels et environnements de travail</h3>
+				<ul>
 					<li><b>Logiciels :</b> Git (avec Github), Visual Studio Code, KiCad, Arduino IDE, STM32CubeIDE, Logisim</li>
 					<li><b>Plateformes :</b> STM32 Nucléo (STM32F769I-Discovery, NUCLEO-F446RE, NUCLEO-F767ZI), Aduino (Uno, Mega), Red Pitaya, ESP32 (ESP32-WROOM-32)</li>
+					<li><b>Outils de compilation :</b>CMake Makefile</li>
 					<li><b>Systèmes d'exploitations :</b> Linux (LTS Ubuntu 22.04 et LTS Ubuntu 24.04), Windows (Xp, 10, 11), Android</li>
 				</ul>
 			</div>
@@ -239,11 +261,26 @@
 
 			<h2 class="section-title">Langues</h2>
 			<div class="section-content">
-				<ul>
-					<li>Français (maternelle)</li>
-					<li>Anglais (B2)</li>
-					<li>Allemand (A2)</li>
-				</ul>
+				<ul class="language-skills">
+					<li>
+						<span>Français (maternelle)</span>
+						<div class="skill-bar">
+							<div class="skill-level" style="width: 100%;"></div>
+						</div>
+					</li>
+					<li>
+						<span>Anglais (B2)</span>
+						<div class="skill-bar">
+							<div class="skill-level" style="width: 75%;"></div>
+						</div>
+					</li>
+					<li>
+						<span>Allemand (A2)</span>
+						<div class="skill-bar">
+							<div class="skill-level" style="width: 40%;"></div>
+						</div>
+					</li>
+				  </ul>
 			</div>
 			<div class="section-end">🗣️</div>
 

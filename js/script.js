@@ -197,7 +197,7 @@ function drawBackground() {
 	
 	var UPDATE_SPEED_WITH_MOUSE = true;
 
-	var canvas = document.getElementById('canvas');
+	var canvas = document.getElementById('background-canvas');
 	var ctx = canvas.getContext('2d');
 
 	canvas.width = window.innerWidth;
@@ -443,11 +443,11 @@ function matrixAnimation() {
 window.addEventListener('DOMContentLoaded', function() {
 	createLinks();
 
-	matrixAnimation();
-	window.addEventListener('resize', matrixAnimation);
+	//matrixAnimation();
+	//window.addEventListener('resize', matrixAnimation);
 
-	//drawBackground();
-	//window.addEventListener('resize', drawBackground);
+	drawBackground();
+	window.addEventListener('resize', drawBackground);
 
 	showSection('sectionHome');
 });
