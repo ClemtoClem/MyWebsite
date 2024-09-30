@@ -7,32 +7,11 @@
 	<title>Page Web Dynamique</title>
 	<link rel="icon" type="image/png" href="img/icon.png">
 	
-	<link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="css/night-background.css" type="text/css">
+	<link rel="stylesheet" href="css/fonts.css" type="text/css">
 	<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 
 <body>
-
-	<!-- Canvas pour le fond d'écran -->
-	<!--<div class="night-background-canvas">
-		<canvas id="canvas"></canvas>
-		<div class="stars"></div>
-		<div class="moon">
-			<div class="crat crat1"></div>
-			<div class="crat crat2"></div>
-			<div class="crat crat3"></div>
-			<div class="crat crat4"></div>
-			<div class="crat crat5"></div>
-			<div class="crat crat6"></div>
-		</div>
-		
-		<div class="cloud"></div>
-		<div class="cloud"></div>
-		<div class="city"></div>
-	</div>-->
-	<canvas id="background-canvas"></canvas>
-
 	<!-- En-tête fixe -->
 	<header>
 		<span id="hamburger" onclick="toggleMenu()" aria-label="Menu de navigation" tabindex="0">
@@ -105,6 +84,7 @@
 				</p>
 			</div>
 			<div class="section-end">🗿</div>
+			<button class="next-section-btn" onclick="showSection('sectionCV')">&rarr; CV</button>
 		</section>
 
 		<!-- Section CV -->
@@ -206,7 +186,7 @@
 			</div>
 			<!-- CDD Carrefour -->
 			<div class="section-content">
-				<h3><a id="a-Carrefour">CDD Carrefour Saint-Egrève, Isère, France</a></h3>
+				<h3><a id="a-Carrefour">CDD Carrefour Saint-Égrève, Isère, France</a></h3>
 				<p>
 					Période : job d'été 2 mois et une semaine (fin juin à fin août 2020)<br \>
 				</p>
@@ -222,7 +202,7 @@
 
 			<h2 class="section-title">Mes compétences</h2>
 			<div class="section-content">
-				<h3>Electronique (hardware)</h3>
+				<h3>Électronique (hardware)</h3>
 				<ul>
 					<li><b>Conception de circuit imprimé :</b>Logiciel Kicad</li>
 					<li><b>Conception de circuit logique</b></li>
@@ -232,15 +212,15 @@
 			<div class="section-content">
 				<h3>Informatique embarqué (firmware)</h3>
 				<ul>
-					<li><b>Languages de programmation :</b> Assembleur RiscV, C, C++, Shell linux</li>
-					<li><b>Programmation de système embarqué :</b> Gestion de l'energie, Gestion des ressources matériels, Système temps réel</li>
+					<li><b>Languages de programmation :</b> Assembleur RISCV, C, C++, Shell Linux</li>
+					<li><b>Programmation de système embarqué :</b> Gestion de l’énergie, Gestion des ressources matériels, Système temps réel</li>
 					<li><b>Languages de description matériel :</b> VHDL SystemC</li>
 				</ul>
 			</div>
 			<div class="section-content">
 				<h3>Informatique (software)</h3>
 				<ul>
-					<li><b>Languages de programmation :</b> Assembleur x86, Rust, C, C++, Shell linux, Python, Lua, Json</li>
+					<li><b>Languages de programmation :</b> Assembleur x86, Rust, C, C++, Shell Linux, Python, Lua, Json</li>
 					<li><b>Librairies graphique C/C++ :</b> SDL2, SDL2_image, SDL2_ttf, SDL2_mixer, SDL2_net, SDL2_gfx, glew, glm, GL, ncurses</li>
 					<li><b>Machine learning</b></li>
 					<li><b>Cybersécurité</b></li>
@@ -261,26 +241,11 @@
 
 			<h2 class="section-title">Langues</h2>
 			<div class="section-content">
-				<ul class="language-skills">
-					<li>
-						<span>Français (maternelle)</span>
-						<div class="skill-bar">
-							<div class="skill-level" style="width: 100%;"></div>
-						</div>
-					</li>
-					<li>
-						<span>Anglais (B2)</span>
-						<div class="skill-bar">
-							<div class="skill-level" style="width: 75%;"></div>
-						</div>
-					</li>
-					<li>
-						<span>Allemand (A2)</span>
-						<div class="skill-bar">
-							<div class="skill-level" style="width: 40%;"></div>
-						</div>
-					</li>
-				  </ul>
+				<ul>
+					<li>Français (maternelle)</li>
+					<li>Anglais (B2)</li>
+					<li>Allemand (A2)</li>
+				</ul>
 			</div>
 			<div class="section-end">🗣️</div>
 
@@ -300,6 +265,7 @@
 			<div class="section-content" style="margin-bottom: 20px;">
 				<button id="cv-download" class="download-button" onclick="downloadCV()">Télécharger mon CV</button>
 			</div>
+			<button class="next-section-btn" onclick="showSection('sectionProjets')">Projets &rarr;</button>
 		</section>
 
 		<!-- Section Projets -->
