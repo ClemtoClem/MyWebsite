@@ -191,7 +191,7 @@ header {
 
 #header-title {
 	font-size: 32px;
-	font-family: 'Leckerli One', cursive;
+	font-family: 'Leckerli One', sans-serif, cursive;
 }
 
 #header-subtitle {
