@@ -3,7 +3,6 @@
  * Author : @ClemtoClem
  * Author URI : https://github.com/ClemtoClem/MyWebsite
  */
-
 const sections_info = {
 	"sectionHome": {"title":'My web site', "subtitle": "", "neon-text-effect": true},
 	"sectionAboutMe": {"title":'About Me', "subtitle": "A la recherche d'un stage de fin d'étude", "neon-text-effect": false},
@@ -31,33 +30,65 @@ function closeMenu() {
 }
 
 // Fonction pour afficher une sous-section spécifique
-function showSection(sectionId) {
-	// Masquer toutes les sous-sections
-	const sections = document.querySelectorAll("section");
-	sections.forEach(section => section.classList.remove("active"));
+function showSection(sectionId, addToHistory = true) {
+    // Masquer toutes les sous-sections
+    const sections = document.querySelectorAll("section");
+    sections.forEach(section => section.classList.remove("active"));
 
-	// Afficher la sous-section sélectionnée
-	const selectedSection = document.getElementById(sectionId);
-	if (selectedSection) {
-		selectedSection.classList.add("active");
-	}
+    // Afficher la sous-section sélectionnée
+    const selectedSection = document.getElementById(sectionId);
+    if (selectedSection) {
+        selectedSection.classList.add("active");
+    }
 
-	// Mettre à jour le titre et le sous-titre de l'en-tête
-	const info = sections_info[sectionId];
-	let header_title = document.getElementById("header-title")
-	header_title.textContent = info["title"];
-	if (info["neon-text-effect"]) {
-		header_title.classList.add("neon-text-effect");
-	} else {
-		header_title.classList.remove("neon-text-effect");
-	}
-	document.getElementById("header-subtitle").textContent = info["subtitle"];
+    // Mettre à jour le titre et le sous-titre de l'en-tête
+    const info = sections_info[sectionId];
+    if (info) { // Vérifie si info existe
+        let header_title = document.getElementById("header-title");
+        header_title.textContent = info["title"];
+        if (info["neon-text-effect"]) {
+            header_title.classList.add("neon-text-effect");
+        } else {
+            header_title.classList.remove("neon-text-effect");
+        }
+        document.getElementById("header-subtitle").textContent = info["subtitle"];
+        document.title = info["title"]; // Mettre à jour le titre du document
+    }
 
-	document.title = info["title"]; // Update document title
+    // Ajouter l'état dans l'historique si nécessaire
+    if (addToHistory) {
+        // Mettre à jour l'URL avec le nom de la section
+        window.history.pushState({ sectionId: sectionId }, '', `#${sectionId}`);
+    }
 
-	// Fermer le menu après sélection (optionnel)
-	closeMenu();
+    // Fermer le menu après sélection (optionnel)
+    closeMenu();
 }
+
+// Fonction pour récupérer le nom de la section depuis l'URL
+function getSectionFromUrl() {
+    // window.location.hash retourne la partie après le #
+    const hash = window.location.hash;
+
+    // Retirer le # pour ne garder que le nom de la section
+    const sectionId = hash.substring(1); // Enlève le premier caractère (#)
+
+    return sectionId; // Retourne "sectionHome", "sectionAboutMe", etc.
+}
+
+// Fonction pour vérifier si la section est incluse dans sections_info
+function isSectionInInfo(sectionId) {
+    return sectionId in sections_info; // Vérifie si sectionId est une clé dans sections_info
+}
+
+// Événement pour gérer les changements d'état de l'historique
+window.addEventListener('popstate', function(event) {
+    const sectionId = getSectionFromUrl();
+    if (isSectionInInfo(sectionId)) {
+        showSection(sectionId, false); // Ne pas ajouter à l'historique à partir de l'événement popstate
+    }
+});
+
 
 // Fermer le menu si l'utilisateur clique en dehors de celui-ci
 window.addEventListener('click', function (event) {
@@ -167,5 +198,12 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 /* Fonction pour charger la page */
 window.addEventListener('DOMContentLoaded', function() {
 	createLinks();
-	showSection('sectionHome');
+
+	// Charger la section au chargement de la page
+	const sectionName = getSectionFromUrl();
+    if (isSectionInInfo(sectionName)) {
+        showSection(sectionName);
+    } else {
+        showSection('sectionHome'); // Affiche la section par défaut si la section n'est pas valide
+    }
 });
