@@ -60,7 +60,9 @@
 					</thead>
 					<tbody>
 					  <tr>
-						<th scope="col" rowspan="5">Photo</th>
+						<th scope="col" rowspan="5">
+							<img src="img/profil.png" />
+						</th>
 					  </tr>
 					  <tr>
 						<th scope="row">Nom</th>
@@ -138,6 +140,7 @@
 							<th>Année</th>
 							<th>Filière</th>
 							<th>École</th>
+							<th>Détails</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -145,21 +148,27 @@
 							<td><b>2022-2024</b></td>
 							<td>4ème année, Informatique et Électronique des Systèmes Embarqués</td>
 							<td><a id="a-polytech">PolyTech, Université Grenoble Alpes (UGA)</a></td>
-						</tr>
-						<tr>
-							<td><b>2023</b></td>
-							<td>Obtention du Bachelor, Informatique et Électronique des Systèmes Embarqués</td>
-							<td><a id="a-polytech">PolyTech, Université Grenoble Alpes (UGA)</a></td>
+							<td>
+								<p class="paragraph indent">
+									La filière (Informatique et Électronique des Systèmes Embarqués) de Polytech Grenoble forme des ingénieurs spécialisés dans la conception et le développement de systèmes embarqués, alliant électronique et informatique aﬁn d’obtenir un Bac5. Ce cursus pluridisciplinaire couvre des domaines tels que la programmation embarquée et logicielle (C, CPlusPlus, Assembleur, STM32, RISCV, Arduino, Linux), la conception de circuits électroniques, le traitement du signal, les systèmes d'exploitation temps réel, la cybersécurité, les réseaux de neurone et deep learning, et les réseaux de communication.
+								</p>
+							</td>
 						</tr>
 						<tr>
 							<td><b>2020-2022</b></td>
 							<td>Génie Électrique et Informatique Industrielle</td>
 							<td><a id="a-IUT1">IUT1 UGA</a></td>
+							<td>
+								<p class="paragraph indent">
+									Ce cursus pluridisciplinaire couvre des domaines tels que la programmation embarquée (C, Assembleur), la conception de circuits électroniques (Kicad), le traitement du signal, les systèmes d'exploitation temps réel, et les réseaux de communication (Linux).
+								</p>
+							</td>
 						</tr>
 						<tr>
 							<td><b>2020</b></td>
 							<td>Baccalauréat série S SVT</td>
 							<td><a id="a-lycee">Lycée Les Eaux Claires de Grenoble</a></td>
+							<td></td>
 						</tr>
 					</tbody>
 				</table>
@@ -172,9 +181,16 @@
 				<h3><a id="a-TIMA">Stage d'assistant ingénieur (Bac+4) au laboratoire TIMA</a></h3>
 				<p>
 					Période : 17 semaines (mi avril à fin août 2024)<br \><br \>
-					<h4>Activité :</h4>
-					Conception et réalisation d'un système de traitement du signal sur plateforme Red Pitaya
-					<br \><br \>
+					<h4>Objectif :</h4>
+					<p class="paragraph indent">L’objectif de ce stage était de piloter une carte d’acquisition Red Pitaya et
+d’optimiser son utilisation aﬁn de mesurer les performances d’un capteur
+MEMS et de caractériser précisément ses ﬁgures de mérite. L’application a été
+développée en C et C sur le système embarqué RedPitaya STEMlab 125-14. Une
+interface utilisateur a été développée en HTML5/CSS3/Js sur un serveur Nginx à
+même la Red Pitaya. L’application développée propose tous les outils nécessaires
+permettant de faire du traitement du signal (Transformée de Fourier Rapide,
+Fenêtrage, Filtre à réponse impulsionnelle inﬁnie, Démodulation, Balayage en
+fréquence).</p>
 					<h4>Compétences acquises :</h4>
 					<ul>
 						<li>Conception et réalisation d'un système de traitement du signal sur plateforme Red Pitaya</li>
@@ -193,6 +209,17 @@
 				<h3><a id="a-Itancia1">Stage de technicien (Bac+2) à Itancia Eybens, Isère, France</a></h3>
 				<p>
 					Période : 12 semaines (fin mars à fin mai 2022)<br \><br \>
+					<h4>Objectif :</h4>
+					<p class="paragraph indent">
+						Programmation d’un algorithme en python sur clé bootable pour créer
+						un test unique adapté à une vingtaine d’ordinateurs diﬀérents. Le lancement de
+						ce programme permettait de tester tous les périphériques de la machine (VGA,
+						RS232, USB), de mesurer les vitesses de lecture et d’écriture sur la mémoire vive
+						et sur chaque disque dur et port USB, de raz les disques dur de la machine,
+						de tester le lecteur CD, de tester les ventilateurs et de tester le processeur
+						graphique de la carte mère.
+					</p>
+					
 					<h4>Activité de l'entreprise :</h4>
 					<ul>
 						<li>Réparation de matériel industriel électronique et informatique sur demande d'entreprise et reconditionnement de téléphone et électroménager.</li>
@@ -223,6 +250,14 @@
 					Période : job d'été 2 mois et une semaine (fin juin à fin août 2021)<br \>
 					Période : job d'été 3 mois (début juin à fin août 2022)<br \>
 					Période : job d'été 3 mois (début juin à fin août 2023)<br \>
+				</p>
+				
+				<h4>Objectif :</h4>
+				<p class="paragraph indent">
+					Réparation de matériel électronique et informatique industrielle basse
+					tension et haute tension. Réinstallation d’ordinateur, réparation d’écran, de
+					monnayeur, de carte de machine à laver de service de lavage, rebillage de FPGA
+					et CPU. Réparation d’onduleur haute puissance et d’onduleur de bureau.
 				</p>
 			</div>
 			<!-- CDD Carrefour -->
@@ -513,8 +548,8 @@
 					La carte de puissance est chargée de contrôler les moteurs du robot. Elle est alimentée par une alimentation 12V fournie par la carte d'alimentation.
 					Un driver moteur câblé en pont en H (<a id="a-LD293D">LD293D Dual H-Bridge</a>) permet de gérer les tensions d'alimentation des moteurs à partir de signaux PWM. Le rapport cyclique du signal permet de modifier la vitesse de rotation du moteur ainsi que son sens de rotation.
 					Le driver moteur est piloté le microcontrôleur génère les trois signaux PWM.
-					<img src="img/LD293D_circuit.gif"></img>
 				</p>
+				<img src="img/LD293D_circuit.gif" style="width:50%;"></img>
 			</div>
 			<h2 class=""></h2>
 		</section>
@@ -523,7 +558,7 @@
 		<section id="sectionContact">
 			<div class="section-content">
 				<h2>Contact</h2>
-				<p>Vous pouvez me contacter via email à <a href="mailto:clement.charriere@free.fr">clement.charriere@free.fr</a>.</p>
+				<p>Vous pouvez me contacter par email à <a href="mailto:clement.charriere@free.fr">clement.charriere@free.fr</a>.</p>
 				
 				<!-- Formulaire de Contact -->
 				<form id="contactForm" action="https://formspree.io/f/{your-form-id}" method="POST" class="contact-form">
