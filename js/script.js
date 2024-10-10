@@ -79,6 +79,7 @@ const links_info = {
 	"a-SRD-05VDC-SL": {"img":'img/SRD-05VDC-SL.jpg', "href": "pdf/datasheets/SRD-05VDC-SL-C.pdf"},
 	"a-2N2218-2N2219": {"img":'img/2N2222A.webp', "href": "pdf/datasheets/2N2218-2N2219.pdf"},
 	"a-PIC18F4331": {"img":'img/PIC18F4431-J5X-FlipFlop2.avif', "href": "pdf/datasheets/PIC18F2331-2431-4331-4431.pdf"},
+	"a-LD293D": {"img":'img/LD293D.jpg', "href": "pdf/datasheets/LD293D.pdf"},
 };
 
 function createLinks() {

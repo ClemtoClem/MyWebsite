@@ -46,6 +46,47 @@
 
 		<!-- Section À Propos -->
 		<section id="sectionAboutMe">
+			<div class="section-content">
+				<table class="profil-table">
+					<caption>
+					  Mon profil
+					</caption>
+					<thead>
+					  <!--<tr>
+						<th scope="col">Person</th>
+						<th scope="col">Most interest in</th>
+						<th scope="col">Age</th>
+					  </tr>-->
+					</thead>
+					<tbody>
+					  <tr>
+						<th scope="col" rowspan="5">Photo</th>
+					  </tr>
+					  <tr>
+						<th scope="row">Nom</th>
+						<td>Charrière</td>
+					  </tr>
+					  <tr>
+						<th scope="row">Prénom</th>
+						<td>Clément</td>
+					  </tr>
+					  <tr>
+						<th scope="row">Âge</th>
+						<td>22</td>
+					  </tr>
+					  <tr>
+						<th scope="row">Formation</th>
+						<td>Etudiant en Informatique des systèmes embarqués</td>
+					  </tr>
+					</tbody>
+					<!--<tfoot>
+					  <tr>
+						<th scope="row" colspan="2">Average age</th>
+						<td>33</td>
+					  </tr>
+					</tfoot>-->
+				  </table>
+			</div>
 			<div class="section-content" style="font-size: 18px;">
 				<p class="paragraph">
 					Bonjour, je m'appelle <b>Charrière Clément</b>
@@ -464,6 +505,15 @@
 					La carte de contrôle est le cerveau du robot. Elle est chargée de gérer les mouvements du robot, de contrôler les moteurs et de communiquer avec les autres cartes électroniques.
 					Elle est alimentée par une alimentation 5V fournie par la carte d'alimentation.
 					Elle est conçue pour être pilotée par un microcontrôleur <a id="a-PIC18F4331">PIC18F4431 de Microchip</a>.
+				</p>
+			</div>
+			<h2 class="section-title">La carte de puissance</h2>
+			<div class="section-content">
+				<p class="paragraph indent">
+					La carte de puissance est chargée de contrôler les moteurs du robot. Elle est alimentée par une alimentation 12V fournie par la carte d'alimentation.
+					Un driver moteur câblé en pont en H (<a id="a-LD293D">LD293D Dual H-Bridge</a>) permet de gérer les tensions d'alimentation des moteurs à partir de signaux PWM. Le rapport cyclique du signal permet de modifier la vitesse de rotation du moteur ainsi que son sens de rotation.
+					Le driver moteur est piloté le microcontrôleur génère les trois signaux PWM.
+					<img src="img/LD293D_circuit.gif"></img>
 				</p>
 			</div>
 			<h2 class=""></h2>
