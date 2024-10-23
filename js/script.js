@@ -194,9 +194,26 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 	}
 });
 
+function calculateAge(dateOfBirth) {
+    const today = new Date();
+    const birth = new Date(dateOfBirth);
+    
+    let age = today.getFullYear() - birth.getFullYear();
+    const mois = today.getMonth() - birth.getMonth();
+    
+    // Si le mois actuel est avant le mois de naissance, ou si c'est le même mois mais que le jour est avant, on retire 1 an.
+    if (mois < 0 || (mois === 0 && today.getDate() < birth.getDate())) {
+        age--;
+    }
+
+    return age;
+}
 
 /* Fonction pour charger la page */
 window.addEventListener('DOMContentLoaded', function() {
+    let ageElem = document.getElementById("my-age");
+    ageElem.innerHTML = calculateAge('2001-10-30');
+
 	createLinks();
 
 	// Charger la section au chargement de la page
