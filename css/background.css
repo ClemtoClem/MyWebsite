@@ -1,0 +1,199 @@
+:root {
+    --s: 0;
+    --light-gray: #d6d2c8;
+    --dark-gray: #b9b4ae56;
+    --gray: #9b9484;
+    --dark-blue: #2b293e;
+    --light-blue: #4bb7da;
+}
+
+body {
+	font-family: Arial, sans-serif;
+	color: #f5f5f5;
+	overflow: hidden;
+
+	margin: 0;
+    width: 100vw;
+    height: 100vh;
+    
+    background-color: #343a40;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%239C92AC' fill-opacity='0.25' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), linear-gradient(to right top, #343a40, #2b2c31, #211f22, #151314, #000000);
+}
+
+body:before {
+    content: "";
+    position: fixed;
+    inset: -75px;
+
+    background:
+     repeating-conic-gradient(#484c50 0 0.00005%,#fff 0 0.0002%)
+      60% 60%/3000px 3000px,
+     repeating-conic-gradient(#343a40 0 0.0001%,#fff 0 0.0002%)
+      40% 40%/4000px 3000px;
+
+    background-blend-mode: difference;
+    filter: blur(3px) contrast(80) brightness(10);
+    mix-blend-mode: lighten;
+    animation: 50s linear 0s infinite alternate translate-background;
+}
+
+@keyframes translate-background {
+    from {
+		background-position: 50% 50%;
+	}
+	to {
+		background-position: 100% 100%;
+	}
+}
+
+#computer {
+    position: absolute;
+    width: 340px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background:
+
+        /* Bottom Section */
+        repeating-linear-gradient(90deg, var(--gray) 0 10px, var(--light-gray) 10px 18px) 258px 236px / 64px 10px,
+        repeating-linear-gradient(90deg, var(--dark-gray) 0 10px, var(--light-gray) 10px 18px) 258px 246px / 64px 38px,
+        linear-gradient(var(--dark-gray), var(--dark-gray)) 166px 264px / 10px 14px,
+        linear-gradient(var(--light-gray) 10px, var(--dark-gray) 10px) 144px 248px / 80px 20px,
+        linear-gradient(90deg, var(--dark-gray) 10px, var(--gray) 10px) 124px 236px / 110px 48px,
+        linear-gradient(90deg, var(--gray) 10px, var(--light-gray) 10px) 90px 230px / 250px 60px,
+        linear-gradient(90deg, var(--gray) 10px, var(--light-gray) 10px) 100px 220px / 240px 80px,
+        linear-gradient(var(--dark-gray), var(--dark-gray)) 10px bottom / 330px 80px,
+        linear-gradient(var(--dark-gray), var(--dark-gray)) left bottom / 320px 70px,
+
+        /* Top Section */
+        linear-gradient(90deg, var(--gray) 18px, var(--light-gray) 18px 26px, var(--gray) 26px 36px, var(--dark-gray) 36px 122px, var(--light-gray) 122px 160px, var(--gray) 160px) 120px 180px / 170px 10px,
+        linear-gradient(var(--gray) 10px, var(--dark-blue) 10px 150px, var(--gray) 150px) 130px 10px / 150px 160px,
+        linear-gradient(90deg, var(--gray) 10px, var(--dark-blue) 10px 180px, var(--gray) 180px) 110px 30px / 190px 120px,
+        linear-gradient(var(--gray), var(--gray)) 120px 20px / 170px 140px,
+        linear-gradient(var(--light-gray), var(--light-gray)) 110px top / 190px 200px,
+        linear-gradient(90deg, var(--gray) 10px, var(--light-gray) 10px) 90px 10px / 220px 180px,
+        linear-gradient(var(--gray), var(--gray)) 100px top / 200px 200px,
+        linear-gradient(var(--dark-gray), var(--dark-gray)) 40px top / 260px 200px,
+        linear-gradient(90deg, var(--dark-gray) 50%, var(--light-gray) 50%) 30px 10px / 280px 180px,
+
+        /* Back section */
+        linear-gradient(90deg, var(--dark-gray) 96px, var(--gray) 96px) 70px 210px / 216px 14px,
+        linear-gradient(var(--dark-gray), var(--dark-gray)) 90px 190px / 178px 30px;
+    background-repeat: no-repeat;
+}
+
+#computer::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 95px;
+    left: 175px;
+    background-color: var(--light-blue);
+    animation: hello 3500ms linear infinite forwards alternate;
+}
+
+@keyframes hello {
+
+    0%,
+    18% {
+        box-shadow:
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            40px -30px 0 var(--light-blue),
+            40px -20px 0 var(--light-blue),
+            10px -30px 0 var(--light-blue),
+            10px -20px 0 var(--light-blue),
+            50px 0 0 var(--light-blue),
+            40px 10px 0 var(--light-blue),
+            30px 10px 0 var(--light-blue),
+            20px 10px 0 var(--light-blue),
+            10px 10px 0 var(--light-blue);
+    }
+
+    24%,
+    38% {
+        box-shadow:
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            50px -30px 0 var(--light-blue),
+            40px -20px 0 var(--light-blue),
+            0 -30px 0 var(--light-blue),
+            10px -20px 0 var(--light-blue),
+            50px 0 0 var(--light-blue),
+            40px 10px 0 var(--light-blue),
+            30px 0 0 var(--light-blue),
+            20px 10px 0 var(--light-blue),
+            10px 10px 0 var(--light-blue);
+    }
+
+    44%,
+    58% {
+        box-shadow:
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            50px -30px 0 var(--light-blue),
+            50px 0 0 var(--light-blue),
+            40px 10px 0 var(--light-blue),
+            30px -20px 0 var(--light-blue),
+            30px 0 0 var(--light-blue),
+            30px 10px 0 var(--light-blue),
+            10px -10px var(--light-blue),
+            0 -30px 0 var(--light-blue),
+            0 -20px 0 var(--light-blue),
+            0 10px 0 var(--light-blue);
+    }
+
+    64%,
+    78% {
+        box-shadow:
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            0 0 0 var(--light-blue),
+            50px -30px 0 var(--light-blue),
+            50px 0 0 var(--light-blue),
+            50px 10px 0 var(--light-blue),
+            30px -30px 0 var(--light-blue),
+            30px -20px 0 var(--light-blue),
+            30px 0 0 var(--light-blue),
+            30px 10px 0 var(--light-blue),
+            10px -10px var(--light-blue),
+            0 -30px 0 var(--light-blue),
+            0 -20px 0 var(--light-blue),
+            0 10px 0 var(--light-blue);
+    }
+
+    84%,
+    100% {
+        box-shadow:
+            50px -30px 0 var(--light-blue),
+            50px -10px 0 var(--light-blue),
+            50px 0 0 var(--light-blue),
+            50px 10px 0 var(--light-blue),
+            30px -30px 0 var(--light-blue),
+            30px -20px 0 var(--light-blue),
+            30px -10px 0 var(--light-blue),
+            30px 0 0 var(--light-blue),
+            30px 10px 0 var(--light-blue),
+            20px -10px 0 var(--light-blue),
+            10px -10px 0 var(--light-blue),
+            0 -30px 0 var(--light-blue),
+            0 -20px 0 var(--light-blue),
+            0 -10px var(--light-blue),
+            0 10px 0 var(--light-blue);
+    }
+}

@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Page Web Dynamique</title>
+	<link rel="icon" type="image/png" href="img/icon.png">
+	
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/background.css" type="text/css">
+	<link rel="stylesheet" href="css/fonts.css" type="text/css">
+	<link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+
+	<!-- En-tête fixe -->
+	<header>
+		<span id="hamburger" onclick="toggleMenu()" aria-label="Menu de navigation" tabindex="0">
+			<div id="hamburger-bar1"></div>
+			<div id="hamburger-bar2"></div>
+			<div id="hamburger-bar3"></div>
+		</span>
+		<div class="title-container">
+			<h1 id="header-title"></h1>
+			<h2 id="header-subtitle"></h2>
+		</div>
+	</header>
+
+	<!-- Barre latérale de navigation -->
+	<nav id="sidebar" aria-label="Barre de navigation">
+		<a href="#" onclick="showSection('sectionHome')" tabindex="0">Accueil</a>
+		<a href="#" onclick="showSection('sectionAboutMe')" tabindex="0">À Propos</a>
+		<a href="#" onclick="showSection('sectionCV')" tabindex="0">Mon Curriculum Vitae</a>
+		<a href="#" onclick="showSection('sectionProjects')" tabindex="0">Projets</a>
+		<a href="#" onclick="showSection('sectionContact')" tabindex="0">Contact</a>
+	</nav>
+
+	<!-- Contenu principal scrollable -->
+	<div id="main-content">
+		<button id="scrollToTopBtn" onclick="scrollToTop()">&#x1F845;</button>
+
+		<!-- Section Accueil -->
+		<section id="sectionHome" class="active">
+			<!-- background -->
+			<div id="computer"></div>
+			
+			<div class="section-content">
+				<p class="p-center" style="font-weight: bold; font-size: 18px;">Bienvenue sur ma page personnelle</p>
+				<p class="p-center" style="font-weight: bold; font-size: 18px;">⮴ Cliquez sur le bouton en haut à gauche pour ouvrir la barre de navigation</p>
+			</div>
+		</section>
+
+		<!-- Section À Propos -->
+		<section id="sectionAboutMe">
+			<div class="section-content">
+				<table class="profil-table">
+					<!--<caption>
+					  Mon profil
+					</caption>-->
+					<thead>
+					  <tr>
+						<th scope="col" style="text-align: center; vertical-align: middle;">Ma photo</th>
+						<th scope="col" colspan="2" style="text-align: center; vertical-align: middle;">Mon identité</th>
+					  </tr>
+					</thead>
+					<tbody>
+					  <tr>
+						<th scope="col" rowspan="6" style="width:200px; max-width:200px;">
+							<div style="display: flex; justify-content: center; align-items: center;">
+								<img src="img/profil.png" />
+							</div>
+						</th>
+					  </tr>
+					  <tr>
+						<th scope="row" style="text-align: center; vertical-align: middle;">Nom</th>
+						<td>Charrière</td>
+					  </tr>
+					  <tr>
+						<th scope="row" style="text-align: center; vertical-align: middle;">Prénom</th>
+						<td>Clément</td>
+					  </tr>
+					  <tr>
+						<th scope="row" style="text-align: center; vertical-align: middle;">Âge</th>
+						<td id="my-age"></td>
+					  </tr>
+					  <tr>
+						<th scope="row" style="text-align: center; vertical-align: middle;">Pays</th>
+						<td>France</td>
+					  </tr>
+					  <tr>
+						<th scope="row" style="text-align: center; vertical-align: middle;">Activité</th>
+						<td>Étudiant <b>BAC+5</b> en Informatique et électronique des systèmes embarqués</td>
+					  </tr>
+					</tbody>
+					<!--<tfoot>
+					  <tr>
+						<th scope="row" colspan="2">Average age</th>
+						<td>33</td>
+					  </tr>
+					</tfoot>-->
+				  </table>
+			</div>
+			<div class="section-content" style="font-size: 18px;">
+				<p class="paragraph">
+					Bonjour, je m'appelle <b>Charrière Clément</b>
+				</p>
+				<p class="paragraph indent">
+					Actuellement en <b>dernière année d'école d'ingénieur (équivalent au Master 2)</b> au sein du réseau
+					<b>Polytech Grenoble</b>, je me spécialise en <b>Informatique et Électronique des Systèmes Embarqués</b> (IESE). 
+					Ce parcours m'a permis d’acquérir de développer des compétences approfondies en 
+					<b>programmation (C, C++, Assembleur, VHDL)</b>, en <b>microélectronique avec la conception de circuit imprimé</b> et 
+					en <b>électronique analogique</b>, ainsi qu'en <b>traitement du signal</b>, avec une forte orientation vers les systèmes 
+					embarqués, un domaine qui me passionne.
+					En validant ma première année d'ingénieur, j'ai pu obtenir un Bachelor (BAC+3) certifiant mon niveau de compétences et de connaissances.
+				</p>
+				<p class="paragraph">
+					Avant d'intégrer Polytech en 2022, j'ai obtenu un <b>BAC+2 en Génie Électrique et Informatique Industrielle</b> (GEII) à l'IUT de Grenoble.
+					Cette formation m'a permis d'acquérir une base solide en électricité, électronique, et automatisation,
+					et d'approfondir mes connaissances en développement de systèmes industriels.
+				</p>
+				<p class="paragraph">
+					Au-delà de mon parcours académique, plusieurs stages et expériences professionnelles (notamment lors de mes emplois d'été) m'ont offert l'occasion 
+					de mettre en pratique mes connaissances dans des environnements variés. J'ai eu la chance de travailler sur des projets alliant de la <b>conception de 
+					systèmes électroniques</b> à la <b>programmation embarquée</b> sur différents systèmes, renforçant à la fois mes compétences techniques et ma capacité 
+					à collaborer au sein d'équipes pluridisciplinaires.
+				</p>
+				<p class="paragraph indent">
+					En parallèle, pendant mon temps libre, je développe des jeux vidéo ludiques et des applications web, ce qui me permet de rester à l'aise dans le développement 
+					de logiciels et d'applications. En réfléchissant à de petits projets, j'ai acquis une solide expérience en développement de logiciels en C et C++, avec l'utilisation 
+					de <b>librairies graphiques</b> telles que <b>ncurses</b>, <b>Opengl avec GL, glew et glm</b> ou <b>SDL2 avec SDL_image, SDL_mixer, SDL_ttf, SDL_net et SDL_gfx</b>.
+					J'ai également développé des applications web en <b>HTML5, CSS3 et JavaScript</b> pour créer des sites web dynamiques et interactifs, en mettant en place des serveurs
+					locaux et en utilisant des <b>API</b> telles que <b>Node.js</b> et <b>Nginx</b>.
+				</p>
+				<p class="paragraph indent">
+					Aujourd'hui, je suis à la recherche d'un <b>stage de fin d'études</b> d'une durée de 22 semaines à partir du 
+					<b>15 mars 2025</b> pour valider mon diplôme et mettre en application mes compétences dans un environnement stimulant, 
+					avec un intérêt particulier pour les projets liés aux systèmes embarqués, à l'informatique, à l'automatisation ou à l'IoT.
+				</p>
+			</div>
+			<div class="section-end">🗿</div>
+			<button class="next-section-btn" onclick="showSection('sectionCV')">CV &#10159;</button>
+		</section>
+
+		<!-- Section CV -->
+		<section id="sectionCV">
+			<h2 class="section-title">Mon parcours scolaire</h2>
+			<div class="section-content">
+				<table>
+					<thead>
+						<tr>
+							<th>Année</th>
+							<th>Filière</th>
+							<th>École</th>
+							<th>Détails</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><b>2022-2024</b></td>
+							<td>4ème année, Informatique et Électronique des Systèmes Embarqués</td>
+							<td><a id="a-polytech">PolyTech, Université Grenoble Alpes (UGA)</a></td>
+							<td>
+								<p class="paragraph indent">
+									La filière (Informatique et Électronique des Systèmes Embarqués) de Polytech Grenoble forme des ingénieurs spécialisés dans la conception et le développement de systèmes embarqués, alliant électronique et informatique aﬁn d’obtenir un BAC+5. Ce cursus pluridisciplinaire couvre des domaines tels que la programmation embarquée et logicielle (C, CPlusPlus, Assembleur, STM32, RISCV, Arduino, Linux), la conception de circuits électroniques, le traitement du signal, les systèmes d'exploitation temps réel, la cybersécurité, les réseaux de neurone et deep learning, et les réseaux de communication.
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td><b>2020-2022</b></td>
+							<td>Génie Électrique et Informatique Industrielle</td>
+							<td><a id="a-IUT1">IUT1 UGA</a></td>
+							<td>
+								<p class="paragraph indent">
+									Ce cursus pluridisciplinaire couvre des domaines tels que la programmation embarquée (C, Assembleur), la conception de circuits électroniques (Kicad), le traitement du signal, les systèmes d'exploitation temps réel, et les réseaux de communication (Linux).
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td><b>2020</b></td>
+							<td>Baccalauréat série S SVT</td>
+							<td><a id="a-lycee">Lycée Les Eaux Claires de Grenoble</a></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="section-end">🎓</div>
+
+			<h2 class="section-title">Mes emplois</h2>
+			<!-- Stage TIMA -->
+			<div class="section-content">
+				<h3><a id="a-TIMA">Stage d'assistant ingénieur (Bac+4) au laboratoire TIMA</a></h3>
+				<p>
+					Période : 17 semaines (mi avril à fin août 2024)<br \><br \>
+					<h4>Objectif :</h4>
+					<p class="paragraph indent">L’objectif de ce stage était de piloter une carte d’acquisition Red Pitaya et
+						d’optimiser son utilisation aﬁn de mesurer les performances d’un capteur
+						MEMS et de caractériser précisément ses ﬁgures de mérite. L’application a été
+						développée en C et C sur le système embarqué RedPitaya STEMlab 125-14. Une
+						interface utilisateur a été développée en HTML5/CSS3/Js sur un serveur Nginx à
+						même la Red Pitaya. L’application développée propose tous les outils nécessaires
+						permettant de faire du traitement du signal (Transformée de Fourier Rapide,
+						Fenêtrage, Filtre à réponse impulsionnelle inﬁnie, Démodulation, Balayage en
+						fréquence).
+					</p>
+					<h4>Compétences acquises :</h4>
+					<ul>
+						<li>Conception et réalisation d'un système de traitement du signal sur plateforme Red Pitaya</li>
+						<li>Programmation Backend en C, C++ et Python</li>
+						<li>Programmation Frontend en HTML, CSS, JavaScript</li>
+						<li>Utilisation de la plateforme Red Pitaya</li>
+						<li>Compétences en interfaces matérielles et logicielles</li>
+						<li>Expertise en optimisation de code</li>
+						<li>Gestion du temps de travail (Gantt)</li>
+						<li>Travail en équipe</li>
+					</ul>
+				</p>
+			</div>
+			<!-- Stage Itancia -->
+			<div class="section-content">
+				<h3><a id="a-Itancia1">Stage de technicien (Bac+2) à Itancia Eybens, Isère, France</a></h3>
+				<p>
+					Période : 12 semaines (fin mars à fin mai 2022)<br \><br \>
+					<h4>Objectif :</h4>
+					<p class="paragraph indent">
+						Programmation d’un algorithme en python sur clé bootable pour créer
+						un test unique adapté à une vingtaine d’ordinateurs diﬀérents. Le lancement de
+						ce programme permettait de tester tous les périphériques de la machine (VGA,
+						RS232, USB), de mesurer les vitesses de lecture et d’écriture sur la mémoire vive
+						et sur chaque disque dur et port USB, de raz les disques dur de la machine,
+						de tester le lecteur CD, de tester les ventilateurs et de tester le processeur
+						graphique de la carte mère.
+					</p>
+					
+					<h4>Activité de l'entreprise :</h4>
+					<ul>
+						<li>Réparation de matériel industriel électronique et informatique sur demande d'entreprise et reconditionnement de téléphone et électroménager.</li>
+						<li>Modification de PCB sur demande</li>
+						<li>Récupération de composants (BGA, CSP, QFN, LGA, …)</li>
+						<li>Assemblage, dessoudage, remplacement de composants, rebillage, reprise filaire</li>
+						<li>Fabrication de capteur d'encre pour imprimante</li>
+					</ul>
+
+					<h4>Activité effectuée :</h4>
+					<ul>
+						<li>Réparation de téléviseurs, écrans et ordinateurs (Optiplex, Vostro, Aplus Cincoze), onduleur (Eaton)</li>
+						<li>Réparation de cartes électroniques (super I/O, Kis)</li>
+						<li>Brasure à l'étain et au plomb</li>
+						<li>Refusion, nettoyage et rebillage de BGA</li>
+						<li>Utilisation de bancs de test sophistiqués</li>
+						<li>Programmation Python</li>
+					</ul>
+
+					<h4>Formation :</h4>
+					Habilitation BR, (Apave, Grenoble)<br \>
+				</p>
+			</div>
+			<!-- CDD Itancia -->
+			<div class="section-content">
+				<h3><a id="a-Itancia2">CDD à Itancia Eybens, Isère, France</a></h3>
+				<p>
+					Période : job d'été 2 mois et une semaine (fin juin à fin août 2021)<br \>
+					Période : job d'été 3 mois (début juin à fin août 2022)<br \>
+					Période : job d'été 3 mois (début juin à fin août 2023)<br \>
+				</p>
+				
+				<h4>Objectif :</h4>
+				<p class="paragraph indent">
+					Réparation de matériel électronique et informatique industrielle basse
+					tension et haute tension. Réinstallation d’ordinateur, réparation d’écran, de
+					monnayeur, de carte de machine à laver de service de lavage, rebillage de FPGA
+					et CPU. Réparation d’onduleur haute puissance et d’onduleur de bureau.
+				</p>
+			</div>
+			<!-- CDD Carrefour -->
+			<div class="section-content">
+				<h3><a id="a-Carrefour">CDD Carrefour Saint-Égrève, Isère, France</a></h3>
+				<p>
+					Période : job d'été 2 mois et une semaine (fin juin à fin août 2020)<br \>
+				</p>
+				<h4>Activité effectuée :</h4>
+				<ul>
+					<li>Réception et stockage de marchandises</li>
+					<li>Mise en rayon des boissons</li>
+					<li>Utilisation de transpalettes automatisés</li>
+					<li>Accueil des clients</li>
+				</ul>
+			</div>
+			<div class="section-end">🏢</div>
+
+			<h2 class="section-title">Mes compétences</h2>
+			<div class="section-content">
+				<h3>Électronique (hardware)</h3>
+				<ul>
+					<li><b>Conception de circuit imprimé :</b> Kicad</li>
+					<li><b>Conception de circuit logique</b></li>
+					<li><b>Architecture des microprocesseurs et processeurs :</b> RISCV</li>
+				</ul>
+			</div>
+			<div class="section-content">
+				<h3>Informatique embarqué (firmware)</h3>
+				<ul>
+					<li><b>Languages de programmation :</b> Assembleur RISCV, C, C++, Shell Linux</li>
+					<li><b>Programmation de système embarqué :</b> Gestion de l’énergie, Gestion des ressources matériels, Système temps réel</li>
+					<li><b>Languages de description matériel :</b> VHDL SystemC</li>
+				</ul>
+			</div>
+			<div class="section-content">
+				<h3>Informatique (software)</h3>
+				<ul>
+					<li><b>Languages de programmation :</b> Assembleur x86, Rust, C, C++, Shell Linux, Python, Lua, Json</li>
+					<li><b>Outils de programmation :</b>FramaC, SystemC, Valgrind, GDB</li>
+					<li><b>Librairies graphique C/C++ :</b> SDL2, SDL2_image, SDL2_ttf, SDL2_mixer, SDL2_net, SDL2_gfx, glew, glm, GL, ncurses</li>
+					<li><b>Machine learning</b></li>
+					<li><b>Cybersécurité</b></li>
+					<li><b>Data processing</b></li>
+					<li><b>Programmation web :</b>JavaScript, CSS3, HTML5, NodeJs, Nginx, Jquery</li>
+				</ul>
+			</div>
+			<div class="section-content">
+				<h3>Matériels et environnements de travail</h3>
+				<ul>
+					<li><b>Logiciels :</b> Git (avec Github), Visual Studio Code, KiCad, Arduino IDE, STM32CubeIDE, Logisim</li>
+					<li><b>Plateformes :</b> STM32 Nucléo (STM32F769I-Discovery, NUCLEO-F446RE, NUCLEO-F767ZI), Aduino (Uno, Mega), Red Pitaya, ESP32 (ESP32-WROOM-32)</li>
+					<li><b>Outils de compilation :</b>CMake Makefile</li>
+					<li><b>Systèmes d'exploitations :</b> Linux (LTS Ubuntu 22.04 et LTS Ubuntu 24.04), Windows (Xp, 10, 11), Android</li>
+				</ul>
+			</div>
+			<div class="section-end">🧑‍💻</div>
+
+			<h2 class="section-title">Langues</h2>
+			<div class="section-content">
+				<ul>
+					<li>Français (maternelle)</li>
+					<li>Anglais (B2)</li>
+					<li>Allemand (A2)</li>
+				</ul>
+			</div>
+			<div class="section-end">🗣️</div>
+
+			<h2 class="section-title">Mes centres d'intérêt</h2>
+			<div class="section-content">
+				<ul>
+					<li>Programmation web (nodeJs, Jquery, HTML, JavaScript, CSS)</li>
+					<li>Programmation jeux vidéo (C++, C, glm, GL, SDL2)</li>
+					<li>Jeux vidéo (Minetest, OpenArena, ROM GBA, ROM NDS)</li>
+					<li>Musique (LMMS, Fasttracker 2)</li>
+					<li>Piano (Jazz)</li>
+					<li>Dessin</li>
+				</ul>
+			</div>
+			<div class="section-end">☕</div>
+
+			<div class="section-content" style="margin-bottom: 20px;">
+				<button id="cv-download" class="download-button" onclick="downloadCV()">Télécharger mon CV</button>
+			</div>
+			<button class="next-section-btn" onclick="showSection('sectionProjects')">Projets &#10159;</button>
+		</section>
+
+		<!-- Section Projets -->
+		<section id="sectionProjects">
+			<h2 class="section-title">Projets Software</h2>
+			<div class="section-content">
+				<h3>Voici une liste de mes projets informatiques</h3>
+				<div class="cards-container">
+					<!-- Carte Projet 1 -->
+					<div class="card">
+						<div class="ribbon-wrapper">
+							<div class="ribbon">C</div>
+						</div>
+						<div class="card-image">
+							<a href="#" onclick="showSection('sectionProject-Polyadventure')" title="polyadventure">
+								<img src="img/polyadventure-capture.png" alt="polyadventure" loading="lazy">
+							</a>
+						</div>
+						<div class="card-text">
+							<h4>Polyadventure</h4>
+							<div class="card-description">
+								<p>Création d'un jeux 2D en C avec la librairie SDL2</p>
+							</div>
+							<time class="card-date">2022</time>
+						</div>
+					</div>
+
+					<!-- Carte Projet 2 -->
+
+					<!-- Carte Projet 3 -->
+				</div>
+			</div>
+
+			<h2 class="section-title">Projets Firmware</h2>
+			<div class="section-content">
+				<h3>Voici une liste de mes projets firmware destinés aux systèmes embarqués</h3>
+				<div class="cards-container">
+					<!-- Carte Projet 1 -->
+					<div class="card">
+						<div class="ribbon-wrapper">
+							<div class="ribbon">C/C++</div>
+						</div>
+						<div class="card-image">
+							<a href="#" onclick="showSection('sectionProject-RedPitaya')" title="redpitaya">
+								<img src="img/red-pitaya.png" alt="redpitaya" loading="lazy">
+							</a>
+						</div>
+						<div class="card-text">
+							<h4>Red Pitaya</h4>
+							<div class="card-description">
+								<p>Développement d'une libraire de traitement du signal sur Red Pitaya pour mesurer les figure de mérite de dispositif MEMS</p>
+							</div>
+							<time class="card-date">2024</time>
+						</div>
+					</div>
+
+					<!-- Carte Projet 2 -->
+
+					<!-- Carte Projet 3 -->
+				</div>
+			</div>
+
+			<h2 class="section-title">Projets Hardware</h2>
+			<div class="section-content">
+				<h3>Voici une liste de mes projets électroniques</h3>
+				<div class="cards-container">
+					<!-- Carte Projet 1 -->
+					<div class="card">
+						<div class="ribbon-wrapper">
+							<div class="ribbon">C, Kicad</div>
+						</div>
+						<div class="card-image">
+							<a href="#" onclick="showSection('sectionProject-RobotHolonome')" title="robot holonome">
+								<img src="img/holonome-robot-capture1.png" alt="robot-holonome" loading="lazy">
+							</a>
+						</div>
+						<div class="card-text">
+							<h4>Robot automatisés</h4>
+							<div class="card-description">
+								<p>Conception d'un robot automatisé utilisant holonomes</p>
+							</div>
+							<time class="card-date">2022</time>
+						</div>
+					</div>
+
+					<!-- Carte Projet 2 -->
+
+					<!-- Carte Projet 3 -->
+				</div>
+			</div>
+			<button class="next-section-btn" onclick="showSection('sectionContact')">Contact &#10159;</button>
+		</section>
+
+		<!-- Section de chaque projets -->
+
+		<!-- Projet Polyadventure -->
+		<section id="sectionProject-Polyadventure">
+			<h2 class="section-title">Polyadventure</h2>
+			<div class="section-content">
+				<h3>Capture</h3>
+				<img src="img/polyadventure-capture.png" alt="Capture d'écran du projet Polyadventure">
+			
+				<p><br /></p>
+				<h3>Description</h3>
+				<p class="paragraph indent">Ce projet a été réalisé dans le cadre de ma formation à Polytech Grenoble.
+				Le but été de créer une application en C en 6 semaines.
+				Avec mon groupe (de 5), que je managé, j'ai pris la décision de développer un jeux 2D de plateau.
+				Afin d'avoir la meilleur portabilité j'ai choisie d'utiliser la librairie graphique SDL2 qui est compatible sur une très grand nombre de système d'exploitation.</p>
+				<p class="paragraph indent">Ce projet met en lumière mes compétences techniques, mon aptitude à travailler en équipe et mon organisation dans des environnements complexes.</p>
+			</div>
+			<h2 class="section-title">Conception, Prototypage et Développement</h2>
+			<div class="section-content">
+				<h3>Définition du concept</h3>
+				<p class="paragraph indent"> 
+					Notre jeu, "Polyadventure", est un jeu d’aventure avec une mécanique inspirée des vieux jeux Pokemon de GameBoy mais avec une plus grande liberté de mouvement.
+					Ayant un temps un peu restraint pour la réalisation de notre jeux, nous avons choisi un game play simpliste, ou le joueur doit affronter quelque monstre, combattre un monstre final et discuter avec quelque personnage.
+				</p>
+
+				<p><br /></p>
+				<h3>Organisation initiale</h3>
+				<ul>
+					<li><b>Méthodologie :</b> SCRUM avec des sprints de une semaine.</li>
+					<li><b>Rôles :</b> J’ai occupé le rôle de <b>lead programmer</b>, car j'ai programmé l'entièreté du moteur du jeu. Mes camarades n'ayant pas autant d'expérience que moi en informatique on fait la partie Design (choix des tiles, design des montres et des personages et conception de la map) et on programmé le déplacement automatique des monstres.</li>
+				</ul>
+				
+				<p><br /></p>
+				<h3>Choix des technologies</h3>
+				<ul>
+					<li><b>Moteur de jeu :</b> Développé complètement en C avec la librairie SDL2.</li>
+					<li><b>Langages :</b> C pour le programme principal, et un pseudo code de configuration que j'ai modifier pour configurer les paramètres du jeu, interconnecter les maps, positionner les entités et le joueur et configurer l'interface utilisateurs. L'utilisation de fichiers de configurations permettais de modifier facilement les éléments du jeu sans devoir le recompiler.</li>
+					<li><b>Gestion des ressources :</b>  J'ai développé mon moteur en optimisant la gestion de ressources, ce qui permet de charger les modifications appliquées sur les fichiers de configurations sans avoir besoin de redémarrer le jeu.</li>
+				</ul>
+
+				<p><br /></p>
+				<h3>Travail d’équipe</h3>
+				<p class="paragraph indent">Chaque sprint commençait par une réunion de planification, d'une dizaine de minutes, histoire que tout le monde sache quoi faire et ne se perde pas.</p>
+			</div>
+
+			<h2 class="section-title">Défis et Résolutions</h2>
+			<div class="section-content">
+				<h3>Problèmes rencontrés</h3>
+				<ul>
+					<li><b>Compilation :</b> Au début, nous avions des problèmes de compilation sur les ordinateurs de mes camarades à cause de variables d'environnements qui n'étaient pas configurées correctement.</li>
+					<li><b>Optimisation : </b> Afin que mes camarades n'arrivant à compiler le code sur leur machine, puissent participer au projet, j'ai décider de leur épargner la compilation en leur proposant un algorithme interprété par mon moteur de jeu leur permettant de concevoir l'histoire du jeux sans devoir compiler le code.</li>
+				</ul>
+				
+				<p><br /></p>
+				<h3>Leçons apprises</h3>
+				<ul>
+					<li>Importance de la communication dans une équipe multidisciplinaire.</li>
+					<li>Adaptation du moteur de jeu pour être ouvert aussi bien aux débutants qu'aux programmeurs expérimentés.</li>
+				</ul>
+			</div>
+				
+		</section>
+
+		<!-- Projet Red Pitaya -->
+		<section id="sectionProject-RedPitaya">
+			<h2 class="section-title">Red Pitaya</h2>
+			<div class="section-content">
+				<p class="paragraph indent">
+					Programmation d'un système universel de mesures des figures de mérites d'un capteur MEMS sur Red Pitaya STEMlab 125-14.
+				</p>
+				<p class="paragraph indent">
+					Le programme compilé à même la Red Pitaya permet de déterminer graphiquement la fréquence de résonance et d'anti-résonance du dispositif.
+					L'application démodule le signal de sortie du dispositif et le signal de référence d’excitation généré par la Red Pitaya et compare les résultats
+					pour en déduire l'amplitude et la phase. Cette étape est répétée pour différentes fréquences d’excitation sur une plage de fréquences paramétrable.
+					Le programme est écrit en C et C++ et utilise la bibliothèque de la Red Pitaya pour gérer ses périphériques et principalement les deux entrées et
+					les deux sorties analogiques hautes performances (125MHz et 14 bits de résolution sur une pleine échelle de ±1V).
+				</p>
+				<div class="img-light-background">
+					<img src="img/red-pitaya.png"></img>
+					<p class="img-title">Red Pitaya STEMlab 125-14</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Projet Robot Holonome -->
+		<section id="sectionProject-RobotHolonome">
+			<h2 class="section-title">Description du Projet : Robot Holonome</h2>
+			<div class="section-content">
+				<p class="paragraph indent">
+					Ce projet a été réalisé dans le cadre de ma formation à l'IUT1 de Grenoble. Il consistait à concevoir entièrement un petit robot de notre choix.
+				</p>
+				<p class="paragraph">
+					J'ai choisi de développer avec mon équipe un robot autonome capable de se déplacer dans un environnement inconnu, d'un point A à un point B. Pour améliorer la maniabilité, j'ai opté pour un design équipé de trois roues holonomes disposées en triangle équilatéral.
+				</p>
+				<p class="paragraph indent">
+					La première étape du projet consistait à réfléchir aux méthodes de déplacement du robot, à son contrôle, ainsi qu'à sa capacité à naviguer dans un environnement inconnu. J'ai donc conçu la structure du robot et sélectionné les composants électroniques nécessaires à son bon fonctionnement. J'ai également envisagé comment le robot pourrait utiliser des capteurs optiques et des capteurs de distance ultrasonores pour éviter les obstacles.
+				</p>
+				<p class="paragraph indent">
+					Avec ce cahier des charges en tête, j'ai commencé par concevoir un prototype en utilisant des matériaux facilement accessibles, tels que le plastique et des pièces mécaniques. Cela m'a permis de construire un châssis solide et robuste, capable de supporter le poids des moteurs, de la batterie, des capteurs et des cartes électroniques.
+				</p>
+				<p class="paragraph indent">
+					Puisque c'était mon premier projet de ce type, j'ai choisi de concevoir une carte électronique dédiée pour chaque fonction du robot. J'ai réparti les fonctionnalités sur 7 cartes électroniques, ainsi qu'une carte supplémentaire pour la communication avec le robot :
+				</p>
+				<ul>
+					<li>Une carte d'alimentation</li>
+					<li>Une carte de contrôle (l'unité de traitement)</li>
+					<li>Une carte de puissance pour contrôler les trois moteurs CC 12V</li>
+					<li>Une carte d'interface (comprenant 6 boutons et un écran LCD)</li>
+					<li>Une carte d'extension pour connecter les six capteurs (un capteur optique au-dessus de chaque roue et un capteur ultrason entre chaque roue)</li>
+					<li>Une carte gyroscope Arduino</li>
+					<li>Une carte de communication haute fréquence pour interagir avec un émetteur/récepteur</li>
+					<li>Une carte de communication haute fréquence pour échanger des données en RS232 entre un ordinateur et le robot.</li>
+				</ul>
+				<p class="paragraph indent">
+					Toutes les cartes électroniques hormis le gyroscope ont été conçues avec le logiciel de conception de circuits imprimés KiCad sous Linux Ubuntu 18.04. KiCad est un logiciel libre et open source, offre une solution simple et intuitive pour la conception de circuits électroniques. Grâce aux équipements disponibles dans mon école, j'ai pu imprimer les cartes électroniques sans passer par une entreprise externe.
+				</p>
+			</div>
+			<h2 class="section-title">La carte d'alimentation</h2>
+			<div class="section-content">
+				<p class="paragraph indent">
+					La carte d'alimentation est conçue pour fournir une alimentation stable et fiable pour les composants électroniques du robot (5V).
+					Elle est alimentée par une batterie Yucel +12V 1.2Ah et est conçue pour fournir une tension 12V.
+					Afin de contrôler le niveau de charge de la batterie, un circuit de surveillance de la tension est intégré à la carte.
+					Le circuit de surveillance de la tension est composé d'un potentiomètre permettant de régler la tension de référence du comparateur
+					qui coupe l'alimentation du circuit si la tension de la batterie est inférieur à 10V
+					et d'un second potentiomètre qui coupe le circuit si le courant dépasse 5A.
+					Le circuit de surveillance est aussi doté d'un fusible de 5A pour protéger le circuit contre les surintensités.
+					Si le circuit de surveillance ne détecte aucune défaillance, un relais est activé pour alimenter un régulateurs de tension LM2937 3.3V et un régulateur de tension LM7805 5V.
+					L'alimentation 12V de la carte de puissance est aussi contrôlée par ce circuit.
+					Le relais peut aussi être activé manuellement par un interrupteur pour désactiver l'alimentation.
+				</p>
+				<p class="paragraph">
+					Liste des composants :
+				</p>
+				<ul>
+					<li>Deux comparateurs de type LM393</li>
+					<li>Deux potentiomètres linéaires (10 kΩ chacun) pour régler les seuils de sous-tension et de surtension.</li>
+					<li>Un fusible de 5A</li>
+					<li>Un relais 250V 10A (<a id="a-SRD-05VDC-SL">SONGLE SRD-05V DC-SL-C</a>) capable de supporter le courant de la batterie.</li>
+					<li>Deux transistors NPN (<a id="a-2N2218-2N2219">2N2222</a>) pour piloter le relais.</li>
+					<li>Deux diodes de roue libre (1N4007) pour protéger contre les surtensions induites par le relais.</li>
+					<li>Divers résistances pour les divisions de tension et le pilotage des transistors.</li>
+					<li>Un interrupteur SPST pour déconnecter manuellement la batterie.</li>
+					<li>Condensateurs de découplage (ex. 0,1 µF) pour stabiliser les alimentations.</li>
+					<li>Un régulateur de tension LM7805 5V</li>
+					<li>Un régulateur de tension LM2937 3.3V</li>
+				</ul>
+			</div>
+			<h2 class="section-title">La carte de contrôle</h2>
+			<div class="section-content">
+				<p class="paragraph indent">
+					La carte de contrôle est le cerveau du robot. Elle est chargée de gérer les mouvements du robot, de contrôler les moteurs et de communiquer avec les autres cartes électroniques.
+					Elle est alimentée par une alimentation 5V fournie par la carte d'alimentation.
+					Elle est conçue pour être pilotée par un microcontrôleur <a id="a-PIC18F4331">PIC18F4431 de Microchip</a>.
+				</p>
+			</div>
+			<h2 class="section-title">La carte de puissance</h2>
+			<div class="section-content">
+				<p class="paragraph indent">
+					La carte de puissance est chargée de contrôler les moteurs du robot. Elle est alimentée par une alimentation 12V fournie par la carte d'alimentation.
+					Un driver moteur câblé en pont en H (<a id="a-LD293D">LD293D Dual H-Bridge</a>) permet de gérer les tensions d'alimentation des moteurs à partir de signaux PWM. Le rapport cyclique du signal permet de modifier la vitesse de rotation du moteur ainsi que son sens de rotation.
+					Le driver moteur est piloté le microcontrôleur génère les trois signaux PWM.
+				</p>
+				<img src="img/LD293D_circuit.gif" style="width:50%;"></img>
+			</div>
+			<h2 class=""></h2>
+		</section>
+
+		<!-- Section Contact -->
+		<section id="sectionContact">
+			<div class="section-content">
+				<h2>Contact</h2>
+				<p>Vous pouvez me contacter par email à <a href="mailto:clement.charriere@free.fr">clement.charriere@free.fr</a>.</p>
+				
+				<!-- Formulaire de Contact -->
+				<form id="contactForm" action="https://formspree.io/f/{your-form-id}" method="POST" class="contact-form">
+					<div class="form-group">
+						<label for="name">Nom :</label>
+						<input type="text" id="name" name="name" required placeholder="Votre nom">
+					</div>
+					<div class="form-group">
+						<label for="email">Email :</label>
+						<input type="email" id="email" name="_replyto" required placeholder="Votre email">
+					</div>
+					<div class="form-group">
+						<label for="subject">Sujet :</label>
+						<input type="text" id="subject" name="subject" required placeholder="Sujet de votre message">
+					</div>
+					<div class="form-group">
+						<label for="message">Message :</label>
+						<textarea id="message" name="message" rows="8" required placeholder="Votre message"></textarea>
+					</div>
+					<button type="submit" class="submit-button">Envoyer</button>
+				</form>
+			</div>
+		</section>
+
+	</div>
+
+	<!-- Pied de page fixe -->
+	<footer>
+		<p style="text-align: right;">Dernière modification 15/11/2024 &copy Clément Charrière</p>
+	</footer>
+
+	<script type="text/javascript" src="js/script.js"></script>
+
+</body>
+
+</html>
