@@ -14,6 +14,7 @@ const sections_info = {
 	"sectionProject-Polyadventure": {"title":'Polyadventure', "subtitle": "Un projet personnel", "neon-text-effect": false},
 	"sectionProject-RedPitaya": {"title":'Red Pitaya', "subtitle": "Un projet professionnel", "neon-text-effect": false},
 	"sectionProject-RobotHolonome": {"title":'Robot Holonome', "subtitle": "Un projet scolaire", "neon-text-effect": false},
+	"sectionProject-BatSpy": {"title":'BatSpy', "subtitle": "Un projet scolaire", "neon-text-effect": false},
 }
 
 // Fonction pour basculer l'affichage de la barre latérale
