@@ -234,6 +234,41 @@ section.active {
 	}
 }
 
+/* Image à inclure dans une section */
+.section-image {
+	width: 80%;           /* Largeur de 80% du div parent */
+	background-color: #00000000; /* Couleur de fond translucide */
+	padding: 10px;         /* Padding de 10px de chaque côté */
+	margin: 0 auto;        /* Centre horizontalement */
+	display: block;        /* Nécessaire pour l'effet de centrer avec margin auto */
+
+	img {
+		width: 100%;
+	}
+}
+
+/* Image à inclure dans une section avec un arrière-plan claire et transparent */
+.section-image-light-background {
+	width: 80%;           /* Largeur de 80% du div parent */
+	background-color: #ffffff90; /* Couleur de fond translucide */
+	padding: 10px;         /* Padding de 10px de chaque côté */
+	margin: 0 auto;        /* Centre horizontalement */
+	display: block;        /* Nécessaire pour l'effet de centrer avec margin auto */
+
+	img {
+		width: 100%;
+	}
+}
+
+.section-image-title {
+	text-align: center;
+	font-size: 18px;
+	font-style: italic;
+	font-weight: bold;
+	margin-bottom: 0px;
+	color:#ffffff;
+}
+
 .section-end {
 	font-size:40px;
 	margin-bottom: 50px;
@@ -305,27 +340,6 @@ body.menu-open footer {
 
 .download-button:hover {
 	background-color: #c0392b;
-}
-
-.img-light-background {
-	width: 80%;           /* Largeur de 80% du div parent */
-	background-color: #ffffff90; /* Couleur de fond translucide */
-	padding: 10px;         /* Padding de 10px de chaque côté */
-	margin: 0 auto;        /* Centre horizontalement */
-	display: block;        /* Nécessaire pour l'effet de centrer avec margin auto */
-
-	img {
-		width: 100%;
-	}
-
-	.img-title {
-		text-align: center;
-		font-size: 18px;
-		font-weight: bold;
-		text-decoration: underline;
-		margin-bottom: 0px;
-		color:#000000;
-	}
 }
 
 /* Afficher un encadré avec une photo de l'école à la position de

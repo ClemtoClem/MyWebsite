@@ -102,10 +102,8 @@
 					</tfoot>-->
 				  </table>
 			</div>
+			<div class="section-end">🗿</div>
 			<div class="section-content" style="font-size: 18px;">
-				<p class="paragraph">
-					Bonjour, je m'appelle <b>Charrière Clément</b>
-				</p>
 				<p class="paragraph indent">
 					Actuellement en <b>dernière année d'école d'ingénieur (BAC+5)</b> au sein du réseau
 					<b>Polytech Grenoble</b>, je me spécialise en <b>Informatique et Électronique des Systèmes Embarqués</b> (IESE). 
@@ -139,7 +137,7 @@
 					avec un intérêt particulier pour les projets liés aux systèmes embarqués, à l'informatique, à l'automatisation ou à l'IoT.
 				</p>
 			</div>
-			<div class="section-end">🗿</div>
+			<div class="section-end">📜</div>
 			<button class="next-section-btn" onclick="showSection('sectionCV')">CV &#10159;</button>
 		</section>
 
@@ -473,16 +471,17 @@
 		<section id="sectionProject-Polyadventure">
 			<h2 class="section-title">Polyadventure</h2>
 			<div class="section-content">
-				<h3>Capture</h3>
-				<img src="img/polyadventure-capture.png" alt="Capture d'écran du projet Polyadventure">
-			
-				<p><br /></p>
 				<h3>Description</h3>
 				<p class="paragraph indent">Ce projet a été réalisé dans le cadre de ma formation à Polytech Grenoble.
 				Le but été de créer une application en C en 6 semaines.
 				Avec mon groupe (de 5), que je managé, j'ai pris la décision de développer un jeux 2D de plateau.
 				Afin d'avoir la meilleur portabilité j'ai choisie d'utiliser la librairie graphique SDL2 qui est compatible sur une très grand nombre de système d'exploitation.</p>
 				<p class="paragraph indent">Ce projet met en lumière mes compétences techniques, mon aptitude à travailler en équipe et mon organisation dans des environnements complexes.</p>
+				
+				<div class="section-image">
+					<img src="img/polyadventure-capture.png">
+					<p class="section-image-title">Capture d'écran du projet Polyadventure</p>
+				</div>
 			</div>
 			<div class="section-end"></div>
 
@@ -547,9 +546,9 @@
 					Le programme est écrit en C et C++ et utilise la bibliothèque de la Red Pitaya pour gérer ses périphériques et principalement les deux entrées et
 					les deux sorties analogiques hautes performances (125MHz et 14 bits de résolution sur une pleine échelle de ±1V).
 				</p>
-				<div class="img-light-background">
-					<img src="img/red-pitaya.png"></img>
-					<p class="img-title">Red Pitaya STEMlab 125-14</p>
+				<div class="section-image-light-background">
+					<img src="img/red-pitaya.png">
+					<p class="section-image-title">Red Pitaya STEMlab 125-14</p>
 				</div>
 			</div>
 			<div class="section-end"></div>
@@ -557,7 +556,7 @@
 
 		<!-- Projet Robot Holonome -->
 		<section id="sectionProject-RobotHolonome">
-			<h2 class="section-title">Description du Projet : Robot Holonome</h2>
+			<h2 class="section-title">Description</h2>
 			<div class="section-content">
 				<p class="paragraph indent">
 					Ce projet a été réalisé dans le cadre de ma formation à l'IUT1 de Grenoble. Il consistait à concevoir entièrement un petit robot de notre choix.
@@ -571,6 +570,12 @@
 				<p class="paragraph indent">
 					Avec ce cahier des charges en tête, j'ai commencé par concevoir un prototype en utilisant des matériaux facilement accessibles, tels que le plastique et des pièces mécaniques. Cela m'a permis de construire un châssis solide et robuste, capable de supporter le poids des moteurs, de la batterie, des capteurs et des cartes électroniques.
 				</p>
+			</div>
+			<div class="section-end"></div>
+
+			<h2 class="section-title">Réflexion</h2>
+			<div class="section-content">
+				<h3>La conception</h3>
 				<p class="paragraph indent">
 					Puisque c'était mon premier projet de ce type, j'ai choisi de concevoir une carte électronique dédiée pour chaque fonction du robot. J'ai réparti les fonctionnalités sur 7 cartes électroniques, ainsi qu'une carte supplémentaire pour la communication avec le robot :
 				</p>
@@ -590,8 +595,13 @@
 			</div>
 			<div class="section-end"></div>
 
-			<h2 class="section-title">La carte d'alimentation</h2>
+			<h2 class="section-title">Réalisation</h2>
 			<div class="section-content">
+				<h3>Le châssis</h3>
+				<p class="paragraph indent">
+					Le châssis est conçu pour être robuste et résistant, capable de supporter le poids des moteurs, de la batterie, des capteurs et des cartes électroniques.
+				</p>
+				<h3>La carte d'alimentation</h3>
 				<p class="paragraph indent">
 					La carte d'alimentation est conçue pour fournir une alimentation stable et fiable pour les composants électroniques du robot (5V).
 					Elle est alimentée par une batterie Yucel +12V 1.2Ah et est conçue pour fournir une tension 12V.
@@ -604,9 +614,7 @@
 					L'alimentation 12V de la carte de puissance est aussi contrôlée par ce circuit.
 					Le relais peut aussi être activé manuellement par un interrupteur pour désactiver l'alimentation.
 				</p>
-				<p class="paragraph">
-					Liste des composants :
-				</p>
+				<p class="paragraph">Liste des composants :</p>
 				<ul>
 					<li>Deux comparateurs de type LM393</li>
 					<li>Deux potentiomètres linéaires (10 kΩ chacun) pour régler les seuils de sous-tension et de surtension.</li>
@@ -620,27 +628,26 @@
 					<li>Un régulateur de tension LM7805 5V</li>
 					<li>Un régulateur de tension LM2937 3.3V</li>
 				</ul>
-			</div>
-			<div class="section-end"></div>
+				<p><br /></p>
 
-			<h2 class="section-title">La carte de contrôle</h2>
-			<div class="section-content">
+				<h3>La carte de contrôle</h3>
 				<p class="paragraph indent">
 					La carte de contrôle est le cerveau du robot. Elle est chargée de gérer les mouvements du robot, de contrôler les moteurs et de communiquer avec les autres cartes électroniques.
 					Elle est alimentée par une alimentation 5V fournie par la carte d'alimentation.
 					Elle est conçue pour être pilotée par un microcontrôleur <a id="a-PIC18F4331">PIC18F4431 de Microchip</a>.
 				</p>
-			</div>
-			<div class="section-end"></div>
+				<p><br /></p>
 
-			<h2 class="section-title">La carte de puissance</h2>
-			<div class="section-content">
+				<h3>La carte de puissance</h3>
 				<p class="paragraph indent">
 					La carte de puissance est chargée de contrôler les moteurs du robot. Elle est alimentée par une alimentation 12V fournie par la carte d'alimentation.
 					Un driver moteur câblé en pont en H (<a id="a-LD293D">LD293D Dual H-Bridge</a>) permet de gérer les tensions d'alimentation des moteurs à partir de signaux PWM. Le rapport cyclique du signal permet de modifier la vitesse de rotation du moteur ainsi que son sens de rotation.
 					Le driver moteur est piloté le microcontrôleur génère les trois signaux PWM.
 				</p>
-				<img src="img/LD293D_circuit.gif" style="width:50%;"></img>
+				<div class="section-image">
+					<img src="img/LD293D_circuit.gif">
+					<p class="section-image-title">Schéma électrique du driver moteur</p>
+				</div>
 			</div>
 			<div class="section-end"></div>
 		</section>
