@@ -7,7 +7,7 @@ const sections_info = {
 	"sectionHome": {"title":'My web site', "subtitle": "", "neon-text-effect": true},
 	"sectionAboutMe": {"title":'About Me', "subtitle": "A la recherche d'un stage de fin d'étude", "neon-text-effect": false},
 	"sectionCV": {"title":'Mon Curriculum Vitae', "subtitle": "Mon parcours professionnel et scolaire", "neon-text-effect": false},
-	"sectionProjects": {"title":'Mes projets', "subtitle": "Mes projets personnels, professionnels et scolaires", "neon-text-effect": false},
+	"sectionProjects": {"title":'Mes projets', "subtitle": "Mes projets personnels, professionnels et scolaires", "neon-text-effect": true},
 	"sectionContact": {"title":'Contact', "subtitle": "Me contacter", "neon-text-effect": false},
 
 	/* sections de chaque projet */
