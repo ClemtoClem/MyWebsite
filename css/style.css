@@ -174,6 +174,16 @@ header {
 	font-family: 'Lemon', 'Times New Roman', sans-serif, cursive;
 }
 
+/* Adapter la largeur de la police si on est en mode mobile */
+@media screen and (max-width: 600px) {
+	#header-title {
+		font-size: 24px;
+	}
+	#header-subtitle {
+		font-size: 18px;
+	}
+}
+
 /* Contenu principal */
 #main-content {
 	display: block;
@@ -182,6 +192,7 @@ header {
 	padding: 20px;
 	margin: 0 auto;	/* Centre horizontalement */
 	width: 100%;
+	min-width: 600px;
 	height: calc(100vh - 120px);  /* Hauteur dynamique basée sur la hauteur de la fenêtre moins l'en-tête */
     overflow-y: auto;   /* Activer la scrollbar verticale */
 	transition: transform 0.3s ease, width 0.3s ease;

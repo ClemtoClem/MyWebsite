@@ -84,12 +84,12 @@ function toggleMenu() {
 	if ((!sidebar.classList.contains("open")) && mainContent.classList.contains("hidden")) {
 		// Ré-afficher le contenu principal
 		mainContent.classList.remove("hidden");
-		console.log("Affichage de la section courante");
+		//console.log("Affichage de la section courante");
 	}
 
 	if (isMobile() || windowWidthIsSmall() || testMobile) {
 		if (sidebar.classList.contains("open")) {
-			console.log("Fermeture du menu");
+			//console.log("Fermeture du menu");
 			// Masquer le contenu principal
 			mainContent.classList.add("hidden");
 		}
@@ -180,10 +180,6 @@ window.addEventListener('click', function (event) {
 	const hamburger = document.querySelector("#hamburger");
 	if (!sidebar.contains(event.target) && !hamburger.contains(event.target) && sidebar.classList.contains("open")) {
 		closeMenu();
-		/*if (isMobile()) {
-			// Si on est sur un téléphone et que le menu est ouvert, on cache toutes les sous-sections
-			showSection()
-		}*/
 	}
 });
 
