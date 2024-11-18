@@ -282,6 +282,15 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 });
 
 /* ================================================================================ */
+// Section pour ouvrir un pdf dans une nouvelle fenêtre
+
+function openPDF(pdfUrl) {
+	const newWindow = window.open("pdf/" + pdfUrl, '_blank');
+	newWindow.focus();
+	return newWindow;
+}
+
+/* ================================================================================ */
 
 /* Fonction pour charger la page */
 window.addEventListener('DOMContentLoaded', function() {
