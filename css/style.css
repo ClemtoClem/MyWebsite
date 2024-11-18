@@ -176,6 +176,7 @@ header {
 
 /* Contenu principal */
 #main-content {
+	display: block;
 	position: fixed;
 	top: 80px;		/* Hauteur de l'en-tête */
 	padding: 20px;
@@ -185,6 +186,15 @@ header {
     overflow-y: auto;   /* Activer la scrollbar verticale */
 	transition: transform 0.3s ease, width 0.3s ease;
 	z-index: 10;
+}
+
+/* Masquer le contenu principal lorsqu'il est caché */
+#main-content.hidden {
+	display: none;
+}
+
+#main-content.visible {
+	display: block;
 }
 
 /* Sous-sections */
@@ -236,7 +246,8 @@ section.active {
 
 /* Image à inclure dans une section */
 .section-image {
-	width: 80%;           /* Largeur de 80% du div parent */
+	width: 80%;            /* Largeur en fonction du div parent */
+	max-width: 500px;     /* Largeur maximale */
 	background-color: #00000000; /* Couleur de fond translucide */
 	padding: 10px;         /* Padding de 10px de chaque côté */
 	margin: 0 auto;        /* Centre horizontalement */
@@ -249,7 +260,8 @@ section.active {
 
 /* Image à inclure dans une section avec un arrière-plan claire et transparent */
 .section-image-light-background {
-	width: 80%;           /* Largeur de 80% du div parent */
+	width: 80%;            /* Largeur en fonction du div parent */
+	max-width: 500px;     /* Largeur maximale */
 	background-color: #ffffff90; /* Couleur de fond translucide */
 	padding: 10px;         /* Padding de 10px de chaque côté */
 	margin: 0 auto;        /* Centre horizontalement */

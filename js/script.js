@@ -3,6 +3,9 @@
  * Author : @ClemtoClem
  * Author URI : https://github.com/ClemtoClem/MyWebsite
  */
+
+/* ================================================================================ */
+/* CONSTANTS */
 const sections_info = {
 	"sectionHome": {"title":'My web site', "subtitle": "", "neon-text-effect": true},
 	"sectionAboutMe": {"title":'About Me', "subtitle": "A la recherche d'un stage de fin d'étude", "neon-text-effect": false},
@@ -15,25 +18,100 @@ const sections_info = {
 	"sectionProject-RedPitaya": {"title":'Red Pitaya', "subtitle": "Un projet professionnel", "neon-text-effect": false},
 	"sectionProject-RobotHolonome": {"title":'Robot Holonome', "subtitle": "Un projet scolaire", "neon-text-effect": false},
 	"sectionProject-BatSpy": {"title":'BatSpy', "subtitle": "Un projet scolaire", "neon-text-effect": false},
+};
+
+const links_info = {
+	"a-polytech": {"img":'img/polytech-grenoble.jpg', "href":"https://polytech.grenoble-inp.fr/"},
+	"a-IUT1": {"img":'img/IUT1-grenoble.jpeg', "href":"https://iut1.univ-grenoble-alpes.fr/"},
+	"a-lycee": {"img":'img/lycee-les-eaux-claires-grenoble.jpg', "href":"https://eaux-claires.ent.auvergnerhonealpes.fr/"},
+	"a-TIMA": {"img":'img/TIMA-grenoble.jpeg', "href":"https://tima.univ-grenoble-alpes.fr/"},
+	"a-Itancia1": {"img":'img/itancia-grenoble.png', "href":"https://itancia.com/"},
+	"a-Itancia2": {"img":'img/itancia-grenoble.png', "href":"https://itancia.com/"},
+	"a-Carrefour": {"img":'img/carrefour-st-egreve.png', "href":"https://www.carrefour.fr/magasin/saint-egreve"},
+	"a-SRD-05VDC-SL": {"img":'img/SRD-05VDC-SL.jpg', "href": "pdf/datasheets/SRD-05VDC-SL-C.pdf"},
+	"a-2N2218-2N2219": {"img":'img/2N2222A.webp', "href": "pdf/datasheets/2N2218-2N2219.pdf"},
+	"a-PIC18F4331": {"img":'img/PIC18F4431-J5X-FlipFlop2.avif', "href": "pdf/datasheets/PIC18F2331-2431-4331-4431.pdf"},
+	"a-LD293D": {"img":'img/LD293D.jpg', "href": "pdf/datasheets/LD293D.pdf"},
+};
+
+const testMobile = false; // pour tester le comportement du site comme sur mobile
+
+/* ================================================================================ */
+
+// Fonction pour vérifier si le navigateur est sur un mobile
+function isMobile() {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    return /android|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent.toLowerCase());
 }
+
+function windowWidthIsSmall() {
+	const windowWidth = window.innerWidth;
+	const sidebarWidth = document.getElementById("sidebar").offsetWidth;
+	// on vérifie si la largeur de la fenêtre est inférieure à trois fois la largeur du menu
+	return windowWidth < (sidebarWidth * 3);
+}
+
+// Fonction pour calculer l'âge à partir de la date de naissance
+function calculateAge(dateOfBirth) {
+	const today = new Date();
+	const birth = new Date(dateOfBirth);
+	
+	let age = today.getFullYear() - birth.getFullYear();
+	const mois = today.getMonth() - birth.getMonth();
+	
+	// Si le mois actuel est avant le mois de naissance, ou si c'est le même mois mais que le jour est avant, on retire 1 an.
+	if (mois < 0 || (mois === 0 && today.getDate() < birth.getDate())) {
+		age--;
+	}
+
+	return age;
+}
+
+// Fonction pour défiler vers le haut de la page
+function scrollToTop() {
+    document.getElementById("main-content").scrollTo({ top: 0, behavior: "smooth" });
+}
+
+/* ================================================================================ */
 
 // Fonction pour basculer l'affichage de la barre latérale
 function toggleMenu() {
 	const sidebar = document.getElementById("sidebar");
+	const mainContent = document.getElementById("main-content");
 	document.body.classList.toggle("menu-open");
 	sidebar.classList.toggle("open");
+
+	if ((!sidebar.classList.contains("open")) && mainContent.classList.contains("hidden")) {
+		// Ré-afficher le contenu principal
+		mainContent.classList.remove("hidden");
+		console.log("Affichage de la section courante");
+	}
+
+	if (isMobile() || windowWidthIsSmall() || testMobile) {
+		if (sidebar.classList.contains("open")) {
+			console.log("Fermeture du menu");
+			// Masquer le contenu principal
+			mainContent.classList.add("hidden");
+		}
+	}
 }
 
+// Fonction pour fermer la barre latérale
 function closeMenu() {
 	const sidebar = document.getElementById("sidebar");
 	document.body.classList.remove("menu-open");
 	sidebar.classList.remove("open");
+	document.getElementById("main-content").classList.remove("hidden");
+}
+
+function menuIsOpen() {
+	return document.body.classList.contains("menu-open");
 }
 
 // Fonction pour afficher une sous-section spécifique
 function showSection(sectionId, addToHistory = true) {
 	// Masquer toutes les sous-sections
-	const sections = document.querySelectorAll("section");
+	var sections = document.querySelectorAll("section");
 	sections.forEach(section => section.classList.remove("active"));
 
 	// Afficher la sous-section sélectionnée
@@ -67,6 +145,7 @@ function showSection(sectionId, addToHistory = true) {
 
 	// Fermer le menu après sélection
 	closeMenu();
+
 }
 
 // Fonction pour récupérer le nom de la section depuis l'URL
@@ -100,23 +179,28 @@ window.addEventListener('click', function (event) {
 	const sidebar = document.getElementById("sidebar");
 	const hamburger = document.querySelector("#hamburger");
 	if (!sidebar.contains(event.target) && !hamburger.contains(event.target) && sidebar.classList.contains("open")) {
-		toggleMenu();
+		closeMenu();
+		/*if (isMobile()) {
+			// Si on est sur un téléphone et que le menu est ouvert, on cache toutes les sous-sections
+			showSection()
+		}*/
 	}
 });
 
-const links_info = {
-	"a-polytech": {"img":'img/polytech-grenoble.jpg', "href":"https://polytech.grenoble-inp.fr/"},
-	"a-IUT1": {"img":'img/IUT1-grenoble.jpeg', "href":"https://iut1.univ-grenoble-alpes.fr/"},
-	"a-lycee": {"img":'img/lycee-les-eaux-claires-grenoble.jpg', "href":"https://eaux-claires.ent.auvergnerhonealpes.fr/"},
-	"a-TIMA": {"img":'img/TIMA-grenoble.jpeg', "href":"https://tima.univ-grenoble-alpes.fr/"},
-	"a-Itancia1": {"img":'img/itancia-grenoble.png', "href":"https://itancia.com/"},
-	"a-Itancia2": {"img":'img/itancia-grenoble.png', "href":"https://itancia.com/"},
-	"a-Carrefour": {"img":'img/carrefour-st-egreve.png', "href":"https://www.carrefour.fr/magasin/saint-egreve"},
-	"a-SRD-05VDC-SL": {"img":'img/SRD-05VDC-SL.jpg', "href": "pdf/datasheets/SRD-05VDC-SL-C.pdf"},
-	"a-2N2218-2N2219": {"img":'img/2N2222A.webp', "href": "pdf/datasheets/2N2218-2N2219.pdf"},
-	"a-PIC18F4331": {"img":'img/PIC18F4431-J5X-FlipFlop2.avif', "href": "pdf/datasheets/PIC18F2331-2431-4331-4431.pdf"},
-	"a-LD293D": {"img":'img/LD293D.jpg', "href": "pdf/datasheets/LD293D.pdf"},
-};
+window.addEventListener('resize', function() {
+	//console.log("window resized");
+	if (menuIsOpen()) {
+		if (windowWidthIsSmall()) {
+			// masquer le contenu principal
+			document.getElementById("main-content").classList.add("hidden");
+		} else if (!isMobile()) {
+			// afficher le contenu principal si on est sur un écran large
+			document.getElementById("main-content").classList.remove("hidden");
+		}
+	}
+});
+
+/* ================================================================================ */
 
 function createLinks() {
 	// Créer l'élément tooltip
@@ -170,6 +254,8 @@ function createLinks() {
 	});
 }
 
+/* ================================================================================ */
+
 function downloadCV() {
 	const cvFileName = 'pdf/CV_CHARRIERE_Clement_2024.pdf';
 	const link = document.createElement('a');
@@ -199,25 +285,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 	}
 });
 
-function calculateAge(dateOfBirth) {
-	const today = new Date();
-	const birth = new Date(dateOfBirth);
-	
-	let age = today.getFullYear() - birth.getFullYear();
-	const mois = today.getMonth() - birth.getMonth();
-	
-	// Si le mois actuel est avant le mois de naissance, ou si c'est le même mois mais que le jour est avant, on retire 1 an.
-	if (mois < 0 || (mois === 0 && today.getDate() < birth.getDate())) {
-		age--;
-	}
-
-	return age;
-}
-
-// Fonction pour défiler vers le haut de la page
-function scrollToTop() {
-    document.getElementById("main-content").scrollTo({ top: 0, behavior: "smooth" });
-}
+/* ================================================================================ */
 
 /* Fonction pour charger la page */
 window.addEventListener('DOMContentLoaded', function() {
