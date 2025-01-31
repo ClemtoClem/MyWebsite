@@ -14,7 +14,7 @@ const sections_info = {
 	"sectionContact": {"title":'Contact', "subtitle": "Me contacter", "neon-text-effect": false},
 
 	/* sections de chaque projet */
-	"sectionProject-Polyadventure": {"title":'Polyadventure', "subtitle": "Un projet personnel", "neon-text-effect": false},
+	"sectionProject-PolyAdventure": {"title":'PolyAdventure', "subtitle": "Un projet personnel", "neon-text-effect": false},
 	"sectionProject-RedPitaya": {"title":'Red Pitaya', "subtitle": "Un projet professionnel", "neon-text-effect": false},
 	"sectionProject-RobotHolonome": {"title":'Robot Holonome', "subtitle": "Un projet scolaire", "neon-text-effect": false},
 	"sectionProject-BatSpy": {"title":'BatSpy', "subtitle": "Un projet scolaire", "neon-text-effect": false},

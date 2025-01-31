@@ -370,12 +370,12 @@
 							<div class="ribbon">C</div>
 						</div>
 						<div class="card-image">
-							<a href="#" onclick="showSection('sectionProject-Polyadventure')" title="polyadventure">
-								<img src="img/polyadventure-capture.png" alt="polyadventure" loading="lazy">
+							<a href="#" onclick="showSection('sectionProject-PolyAdventure')" title="PolyAdventure">
+								<img src="img/PolyAdventure-capture.png" alt="PolyAdventure" loading="lazy">
 							</a>
 						</div>
 						<div class="card-text">
-							<h4>Polyadventure</h4>
+							<h4>PolyAdventure</h4>
 							<div class="card-description">
 								<p>Création d'un jeux 2D en C avec la librairie SDL2</p>
 							</div>
@@ -470,20 +470,20 @@
 
 		<!-- Section de chaque projets -->
 
-		<!-- Projet Polyadventure -->
-		<section id="sectionProject-Polyadventure">
-			<h2 class="section-title">Polyadventure</h2>
+		<!-- Projet PolyAdventure -->
+		<section id="sectionProject-PolyAdventure">
+			<h2 class="section-title">PolyAdventure</h2>
 			<div class="section-content">
 				<h3>Description</h3>
 				<p class="paragraph indent">Ce projet a été réalisé dans le cadre de ma formation à Polytech Grenoble.
 				Le but été de créer une application en C en 6 semaines.
-				Avec mon groupe (de 5), que je managé, j'ai pris la décision de développer un jeux 2D de plateau.
-				Afin d'avoir la meilleur portabilité j'ai choisie d'utiliser la librairie graphique SDL2 qui est compatible sur une très grand nombre de système d'exploitation.</p>
+				Avec mon groupe (de 5), que je managé, j'ai pris la décision de développer un jeux de plateau 2D.
+				Afin d'avoir la meilleur portabilité, j'ai choisie d'utiliser la librairie graphique SDL2 qui est compatible sur un très grand nombre de système d'exploitation.</p>
 				<p class="paragraph indent">Ce projet met en lumière mes compétences techniques, mon aptitude à travailler en équipe et mon organisation dans des environnements complexes.</p>
 				
 				<div class="section-image">
-					<img src="img/polyadventure-capture.png">
-					<p class="section-image-title">Capture d'écran du projet Polyadventure</p>
+					<img src="img/PolyAdventure-capture.png">
+					<p class="section-image-title">Capture d'écran du projet PolyAdventure</p>
 				</div>
 			</div>
 			<div class="section-end"></div>
@@ -492,7 +492,7 @@
 			<div class="section-content">
 				<h3>Définition du concept</h3>
 				<p class="paragraph indent"> 
-					Notre jeu, "Polyadventure", est un jeu d’aventure avec une mécanique inspirée des vieux jeux Pokemon de GameBoy mais avec une plus grande liberté de mouvement.
+					Notre jeu, "PolyAdventure", est un jeu d’aventure avec une mécanique inspirée des vieux jeux Pokemon de GameBoy, mais avec une plus grande liberté de mouvement.
 					Ayant un temps un peu restraint pour la réalisation de notre jeux, nous avons choisi un game play simpliste, ou le joueur doit affronter quelque monstre, combattre un monstre final et discuter avec quelque personnage.
 				</p>
 
@@ -521,8 +521,8 @@
 			<div class="section-content">
 				<h3>Problèmes rencontrés</h3>
 				<ul>
-					<li><b>Compilation :</b> Au début, nous avions des problèmes de compilation sur les ordinateurs de mes camarades à cause de variables d'environnements qui n'étaient pas configurées correctement.</li>
-					<li><b>Optimisation : </b> Afin que mes camarades n'arrivant à compiler le code sur leur machine, puissent participer au projet, j'ai décider de leur épargner la compilation en leur proposant un algorithme interprété par mon moteur de jeu leur permettant de concevoir l'histoire du jeux sans devoir compiler le code.</li>
+					<li><b>Compilation :</b> Au début, nous avions des problèmes de compilation sur les ordinateurs de mes camarades à cause de variables d'environnements qui n'étaient pas configurées correctement sur le système d'exploitation Windows.</li>
+					<li><b>Solutions : </b> Afin que mes camarades n'arrivant à compiler le code sur leur machine, puissent participer au projet, j'ai décider de leur épargner la compilation en leur proposant un algorithme interprété par mon moteur de jeu leur permettant de concevoir l'histoire du jeux sans devoir compiler le code.</li>
 				</ul>
 				
 				<p><br /></p>
@@ -531,6 +531,14 @@
 					<li>Importance de la communication dans une équipe multidisciplinaire.</li>
 					<li>Adaptation du moteur de jeu pour être ouvert aussi bien aux débutants qu'aux programmeurs expérimentés.</li>
 				</ul>
+			</div>
+
+			<h2 class="section-title">Amélioration</h2>
+			<div class="section-content">
+				Puisque le code du projet a été développé précipitamment, cause de temps limité (6 semaines non complètes), plusieurs erreur d'allocation de mémoire n'ont pas été corrigée.
+				Grâce au débugueur Valgrind, j'ai pu mettre en évidence les nombreuse erreur et les oublies de libération de la mémoire.
+				J'ai décider de continuer personnellement ce projet, en réécrivant totalement, le moteur de jeu.
+				Cela permettrait d'approfondir le concept de "Entity Component System" et d'améliorer le système de GUI.
 			</div>
 				
 		</section>
